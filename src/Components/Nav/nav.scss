@@ -38,3 +38,58 @@
 .login-button {
   cursor: pointer;
 }
+
+// nav modal
+
+.navModal {
+  background: #100f0f;
+  height: auto;
+  border: 1px solid rgb(27, 27, 27);
+  padding: 1rem 0;
+  .navModalContent {
+    width: 90%;
+    margin: auto 0 auto auto;
+    display: flex;
+  }
+}
+
+.navModalImage {
+  flex: 0.6;
+  width: 100px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navModalLinks {
+  flex: 1.4;
+}
+
+.selectedNavContent {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 2rem;
+  & > div {
+    display: flex;
+    margin-left: 1rem;
+    transition: all 0.3s linear;
+    margin: 0.5rem 0;
+    padding: 0.8rem;
+    &:hover {
+      background-color: #181818;
+      border-radius: 10px;
+    }
+  }
+}
+
+.selectedNavContentImg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.selectedNavContentSubHeading {
+  & > :nth-of-type(2) {
+    width: 80%;
+    font-size: 12px;
+  }
+}
