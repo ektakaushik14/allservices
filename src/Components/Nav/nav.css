@@ -25,11 +25,18 @@
 .navContent .navLinks ul {
   display: flex;
 }
+.navContent .navLinks ul .active {
+  color: rgb(122, 122, 122);
+}
 .navContent .navLinks ul li {
   cursor: pointer;
   margin-right: 2rem;
   display: flex;
   align-items: center;
+  transition: color 0.1s linear;
+}
+.navContent .navLinks ul li:hover {
+  color: rgb(122, 122, 122);
 }
 
 #logo {
@@ -39,6 +46,26 @@
 
 .login-button {
   cursor: pointer;
+}
+.login-button button {
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  background: white;
+  color: black;
+  align-items: center;
+  display: flex;
+  padding: 0.6rem 1rem;
+}
+.login-button button img {
+  height: 16px;
+  width: 16px;
+  margin: 0 0.5rem 0 0;
+  -o-object-fit: contain;
+     object-fit: contain;
+  transform: rotate(0deg);
+  -webkit-animation: rotateLogin 5s linear infinite;
+          animation: rotateLogin 5s linear infinite;
 }
 
 .navModal {
@@ -77,6 +104,10 @@
   transition: all 0.3s linear;
   margin: 0.5rem 0;
   padding: 0.8rem;
+  transform: translatex(10%);
+  opacity: 0;
+  -webkit-animation: transform 0.4s ease-in-out forwards 0.1s;
+          animation: transform 0.4s ease-in-out forwards 0.1s;
 }
 .selectedNavContent > div:hover {
   background-color: #181818;
@@ -91,4 +122,28 @@
 .selectedNavContentSubHeading > :nth-of-type(2) {
   width: 80%;
   font-size: 12px;
+}
+
+@-webkit-keyframes transform {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes transform {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes rotateLogin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotateLogin {
+  to {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=nav.css.map */

@@ -21,11 +21,18 @@
     display: flex;
     ul {
       display: flex;
+      .active {
+        color: rgb(122, 122, 122);
+      }
       li {
         cursor: pointer;
         margin-right: 2rem;
         display: flex;
         align-items: center;
+        transition: color 0.1s linear;
+        &:hover {
+          color: rgb(122, 122, 122);
+        }
       }
     }
   }
@@ -37,6 +44,24 @@
 }
 .login-button {
   cursor: pointer;
+  & button {
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    background: white;
+    color: black;
+    align-items: center;
+    display: flex;
+    padding: 0.6rem 1rem;
+    img {
+      height: 16px;
+      width: 16px;
+      margin: 0 0.5rem 0 0;
+      object-fit: contain;
+      transform: rotate(0deg);
+      animation: rotateLogin 5s linear infinite;
+    }
+  }
 }
 
 // nav modal
@@ -75,6 +100,9 @@
     transition: all 0.3s linear;
     margin: 0.5rem 0;
     padding: 0.8rem;
+    transform: translatex(10%);
+    opacity: 0;
+    animation: transform 0.4s ease-in-out forwards 0.1s;
     &:hover {
       background-color: #181818;
       border-radius: 10px;
@@ -91,5 +119,17 @@
   & > :nth-of-type(2) {
     width: 80%;
     font-size: 12px;
+  }
+}
+
+@keyframes transform {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes rotateLogin {
+  to {
+    transform: rotate(360deg);
   }
 }
