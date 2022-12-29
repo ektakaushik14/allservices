@@ -1,0 +1,40 @@
+.navbar {
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  min-height: 10vh;
+}
+.navContent {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  justify-content: space-between;
+  & > div {
+    display: flex;
+  }
+  .navLinks {
+    display: flex;
+    ul {
+      display: flex;
+      li {
+        cursor: pointer;
+        margin-right: 2rem;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+#logo {
+  cursor: pointer;
+  margin-right: 3rem;
+}
+.login-button {
+  cursor: pointer;
+}

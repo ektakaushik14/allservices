@@ -1,7 +1,9 @@
-import "./Allcss.css";
+import "./landing.css";
+import Nav from "../Nav/Nav";
 export default function Landing() {
   return (
     <div className="landing">
+      <Nav />
       <div className="landing-page">
         <div className="land-section2"></div>
         <div className="land-section3"></div>

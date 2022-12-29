@@ -1,0 +1,42 @@
+.navbar {
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  min-height: 10vh;
+}
+
+.navContent {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  justify-content: space-between;
+}
+.navContent > div {
+  display: flex;
+}
+.navContent .navLinks {
+  display: flex;
+}
+.navContent .navLinks ul {
+  display: flex;
+}
+.navContent .navLinks ul li {
+  cursor: pointer;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  cursor: pointer;
+  margin-right: 3rem;
+}
+
+.login-button {
+  cursor: pointer;
+}/*# sourceMappingURL=nav.css.map */
