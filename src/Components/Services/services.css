@@ -28,30 +28,23 @@
   height: 80vh;
   width: 100%;
   display: flex;
-  justify-content: space-around;
-  border: 1px solid red;
 }
-.service-content > .card {
+.service-content > div .card {
   height: 20vh;
-  width: 50%;
   display: flex;
-  flex-wrap: wrap;
   flex: 1 1 20rem;
-  border: 1px solid red;
 }
-.service-content > .card > :nth-child(1) {
+.service-content > div .card > :nth-child(1) {
   padding-right: 1.5rem;
-  border: 1px solid red;
 }
-.service-content > .card > :nth-child(2) {
+.service-content > div .card > :nth-child(2) {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgb(31, 27, 27);
 }
-.service-content > .card > :nth-child(2) > :nth-child(1) {
+.service-content > div .card > :nth-child(2) > :nth-child(1) {
   font-weight: 600;
   padding-bottom: 1rem;
 }
-.service-content > .card > :nth-child(2) > :nth-child(2) {
+.service-content > div .card > :nth-child(2) > :nth-child(2) {
   color: #7a8a9a;
 }/*# sourceMappingURL=services.css.map */

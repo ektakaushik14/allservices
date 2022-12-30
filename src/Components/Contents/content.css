@@ -1,0 +1,101 @@
+.content {
+  min-height: 100vh;
+  background-color: #f3f5f8;
+  padding-top: 2rem;
+  overflow-x: hidden;
+}
+
+.contentHeading {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  text-transform: capitalize;
+  width: 40%;
+  margin: auto;
+  opacity: 1;
+  transition: all 1s linear;
+}
+.contentHeading .dynamicServiceText {
+  background: linear-gradient(to right, #ec46a2, #ec4170, #ec46a2, #6348f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contentSubheading {
+  text-align: center;
+  width: 40%;
+  margin: 2rem auto;
+}
+
+.contentCTA {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contentCTA button {
+  border: none;
+  outline: none;
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 14px;
+  background: #6939c0;
+  font-weight: 700;
+  color: white;
+}
+
+.contentAllServicesMarquee {
+  margin-top: 3rem;
+  width: 150%;
+}
+
+.contentServicesContainer {
+  display: flex;
+  margin-top: 1rem;
+  width: 100%;
+  align-items: center;
+  -webkit-animation: infiniteScrolling 30s ease-in-out infinite alternate;
+          animation: infiniteScrolling 30s ease-in-out infinite alternate;
+  text-transform: capitalize;
+}
+.contentServicesContainer .activeContentServicesContainer {
+  border: 2px solid #6939c1;
+  color: #6939c1;
+}
+.contentServicesContainer > div {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background: white;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 25px;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+.contentServicesContainer:nth-of-type(2) {
+  animation: infiniteScrolling1 30s ease-in-out infinite alternate-reverse;
+  flex-direction: row-reverse;
+}
+
+@-webkit-keyframes infiniteScrolling {
+  to {
+    transform: translateX(-75%);
+  }
+}
+
+@keyframes infiniteScrolling {
+  to {
+    transform: translateX(-75%);
+  }
+}
+@-webkit-keyframes infiniteScrolling1 {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes infiniteScrolling1 {
+  to {
+    transform: translateX(-50%);
+  }
+}/*# sourceMappingURL=content.css.map */

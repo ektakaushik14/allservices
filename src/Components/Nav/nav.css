@@ -47,7 +47,12 @@
 .login-button {
   cursor: pointer;
 }
+.login-button a {
+  text-decoration: none;
+  cursor: pointer;
+}
 .login-button button {
+  cursor: pointer;
   border-radius: 15px;
   outline: none;
   border: none;
@@ -56,6 +61,7 @@
   align-items: center;
   display: flex;
   padding: 0.6rem 1rem;
+  text-decoration: none;
 }
 .login-button button img {
   height: 16px;

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./nav.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import NavDropdownModal from "./NavDropdownModal";
@@ -59,10 +60,12 @@ export default function Nav() {
           </div>
         </div>
         <div className="login-button">
-          <button>
-            <img src={SignInIcon} alt="" />
-            Login
-          </button>
+          <Link to="/login">
+            <button>
+              <img src={SignInIcon} alt="" />
+              Login
+            </button>
+          </Link>
         </div>
       </div>
       <div className="navDropdownModal">
