@@ -21,18 +21,33 @@
   width: 70%;
   font-weight: 700;
   text-align: center;
+  padding-bottom: 12rem;
+  color: green;
   word-spacing: 5px;
+  background: linear-gradient(to right, #0d3635, #05ad34, #18414e, #14d2ef);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .service-content {
   height: 80vh;
   width: 100%;
   display: flex;
-
+  padding-top: 2rem;
+  border-radius: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background: rgb(242, 245, 245);
+  align-items: center;
   & > div .card {
-    height: 20vh;
+    height: 15vh;
     display: flex;
-    flex: 1 1 20rem;
+    padding: 0rem 2rem;
     & > :nth-child(1) {
+      & img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
       padding-right: 1.5rem;
     }
     & > :nth-child(2) {
@@ -40,10 +55,11 @@
       flex-direction: column;
       & > :nth-child(1) {
         font-weight: 600;
-        padding-bottom: 1rem;
+        color: rgba(7, 107, 88, 1);
+        padding-bottom: 0.5rem;
       }
       & > :nth-child(2) {
-        color: #7a8a9a;
+        color: rgb(94, 96, 95);
       }
     }
   }
