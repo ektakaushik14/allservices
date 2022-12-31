@@ -16,7 +16,7 @@ export default function Landing() {
 
   return (
     <div className="landing">
-      <Nav isSignedOut={(e) => isSignedOut(e)} />
+      <Nav black={false} isSignedOut={(e) => isSignedOut(e)} />
       <div className="landing-page">
         <div className="land-section2"></div>
         <div className="land-section3"></div>
