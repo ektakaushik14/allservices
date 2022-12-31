@@ -44,14 +44,14 @@
   margin-right: 3rem;
 }
 
-.login-button {
+.nav-login-button {
   cursor: pointer;
 }
-.login-button a {
+.nav-login-button a {
   text-decoration: none;
   cursor: pointer;
 }
-.login-button button {
+.nav-login-button button {
   cursor: pointer;
   border-radius: 15px;
   outline: none;
@@ -63,7 +63,7 @@
   padding: 0.6rem 1rem;
   text-decoration: none;
 }
-.login-button button img {
+.nav-login-button button img {
   height: 16px;
   width: 16px;
   margin: 0 0.5rem 0 0;

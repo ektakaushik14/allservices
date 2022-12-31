@@ -5,6 +5,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Login from "./Components/Login/Login";
+import PageNotFound from "./Components/404Page/404Page";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -17,7 +18,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-  
+  {
+    path: "*",
+    element: <PageNotFound />,
+  },
 ]);
 
 root.render(

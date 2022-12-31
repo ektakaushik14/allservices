@@ -1,3 +1,11 @@
+.loading_page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .login-page {
   height: 100vh;
   display: flex;
@@ -62,7 +70,7 @@
 
 .login-form {
   & > div {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     h4 {
       font-weight: 400;
       font-size: 12px;
@@ -96,13 +104,18 @@
 }
 
 .login-button button {
+  cursor: pointer;
   color: white;
+  outline: none;
+  border: none;
+  border-radius: 14px;
   width: 100%;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 2rem 0;
+  height: 48px;
   background: -webkit-linear-gradient(
     43deg,
     #4158d0 0%,
@@ -110,6 +123,12 @@
     #ffcc70 100%
   );
   font-size: 1rem;
+  & img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+    animation: rotateLoader 1s linear infinite;
+  }
 }
 
 .login-divider {
@@ -147,5 +166,17 @@
       height: 24px;
       object-fit: contain;
     }
+  }
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 1rem;
+}
+
+@keyframes rotateLoader {
+  to {
+    transform: rotate(360deg);
   }
 }
