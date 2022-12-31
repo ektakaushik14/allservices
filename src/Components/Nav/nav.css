@@ -1,4 +1,4 @@
-.blackTrue a {
+.blackTrue > .navContent a {
   color: black;
 }
 
@@ -129,6 +129,9 @@
   height: 2rem;
 }
 
+.selectedNavContentSubHeading {
+  color: white;
+}
 .selectedNavContentSubHeading > :nth-of-type(2) {
   width: 90%;
   font-size: 12px;
