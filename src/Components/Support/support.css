@@ -1,0 +1,17 @@
+.support {
+  min-height: 100vh;
+}
+.support .supportHeading {
+  height: 50vh;
+  width: 90%;
+  margin: auto;
+}
+.support .supportHeading > div:nth-of-type(1) {
+  margin-top: 4rem;
+  font-size: 4rem;
+  text-transform: capitalize;
+  width: 50%;
+}
+.support .supportHeading > div {
+  margin: 1rem 0;
+}/*# sourceMappingURL=support.css.map */

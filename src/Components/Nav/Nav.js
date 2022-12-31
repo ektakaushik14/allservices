@@ -7,7 +7,7 @@ import "./nav.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import NavDropdownModal from "./NavDropdownModal";
 import SignInIcon from "../../Images/signInIcon.png";
-export default function Nav({ isSignedOut }) {
+export default function Nav({ isSignedOut, black }) {
   const [user, loading] = useAuthState(auth);
   const [activeNav, setActiveNav] = useState("");
   const [isNavActive, setIsNavActive] = useState(false);
@@ -48,10 +48,12 @@ export default function Nav({ isSignedOut }) {
   };
 
   return (
-    <div className="navbar">
+    <div className={black ? "blackTrue" : "navbar"}>
       <div className="navContent">
         <div>
-          <div id="logo">logo</div>
+          <div id="logo">
+            <Link to="/">Logo</Link>
+          </div>
           <div className="navLinks">
             <ul>
               <li
@@ -66,11 +68,8 @@ export default function Nav({ isSignedOut }) {
               >
                 Company <KeyboardArrowDownIcon />
               </li>
-              <li
-                className={activeNav === "Support" ? "active" : ""}
-                onClick={() => handleActiveNav("Support")}
-              >
-                Support <KeyboardArrowDownIcon />
+              <li>
+                <Link to="/support">Support</Link>
               </li>
               <li>Pricing</li>
             </ul>

@@ -6,6 +6,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Login from "./Components/Login/Login";
 import PageNotFound from "./Components/404Page/404Page";
+import Support from "./Components/Support/Support";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/support",
+    element: <Support />,
   },
   {
     path: "*",
