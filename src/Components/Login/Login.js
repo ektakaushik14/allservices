@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./login.css";
 import Loader from "../../Images/loader.png";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
 import {
   createUserWithEmailAndPassword,
@@ -11,7 +12,7 @@ import {
 } from "firebase/auth";
 export default function Login() {
   const navigate = useNavigate();
-
+  const [user, loadingg] = useAuthState(auth);
   const [loginSignUp, setLoginSignUp] = useState(1);
   const [name, setName] = useState("");
   const [username, setUserName] = useState("");
@@ -81,116 +82,120 @@ export default function Login() {
     setError("");
   }, [loginSignUp, name, username, password]);
 
-  return (
-    <div className="login-page">
-      <div className="login-left-side">
-        <div className="backgroundLines"></div>
-        <div className="login-left-side-content">
-          <div>Lorem ipsum dolor sit amet.</div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis
-            nemo veniam deserunt velit quia adipisci? Ex accusantium facere
-            suscipit illum?
-          </p>
-        </div>
-      </div>
-      <div className="login-right-side">
-        <div className="login-right-side-content">
-          <div id="login-logo">logo</div>
-          <div className="login-right-side-heading">
-            <div>hey</div>
+  if (user) {
+    return <Navigate to="/" />;
+  } else if (loadingg) return <div className="loading_page">Loading...</div>;
+  else
+    return (
+      <div className="login-page">
+        <div className="login-left-side">
+          <div className="backgroundLines"></div>
+          <div className="login-left-side-content">
             <div>Lorem ipsum dolor sit amet.</div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis
+              nemo veniam deserunt velit quia adipisci? Ex accusantium facere
+              suscipit illum?
+            </p>
           </div>
-          <div className="login-form">
-            {loginSignUp != 1 && (
+        </div>
+        <div className="login-right-side">
+          <div className="login-right-side-content">
+            <div id="login-logo">logo</div>
+            <div className="login-right-side-heading">
+              <div>hey</div>
+              <div>Lorem ipsum dolor sit amet.</div>
+            </div>
+            <div className="login-form">
+              {loginSignUp != 1 && (
+                <div>
+                  <h4>Name</h4>
+                  <input
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    type="text"
+                  />
+                </div>
+              )}
               <div>
-                <h4>Name</h4>
+                <h4>email</h4>
                 <input
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  type="text"
+                  value={username}
+                  onChange={(e) => setUserName(e.target.value)}
+                  type="email"
                 />
               </div>
+              <div>
+                <h4>password</h4>
+                <input
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  type="password"
+                />
+              </div>
+            </div>
+            {error.length > 0 && (
+              <div className="error-message">
+                {error.includes("email-already-in-use")
+                  ? "Email is already in use please Login"
+                  : error}
+              </div>
             )}
-            <div>
-              <h4>email</h4>
-              <input
-                value={username}
-                onChange={(e) => setUserName(e.target.value)}
-                type="email"
-              />
+            <div className="forgot-password">
+              <div>
+                <input type="checkbox" /> remember me
+              </div>
+              <div>Forgot Password?</div>
             </div>
-            <div>
-              <h4>password</h4>
-              <input
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                type="password"
-              />
+            <div onClick={handleLogin} className="login-button">
+              <button>
+                {loading ? (
+                  <img src={Loader} />
+                ) : loginSignUp === 1 ? (
+                  "Login"
+                ) : (
+                  "Sign Up"
+                )}{" "}
+              </button>
             </div>
-          </div>
-          {error.length > 0 && (
-            <div className="error-message">
-              {error.includes("email-already-in-use")
-                ? "Email is already in use please Login"
-                : error}
+            {loginSignUp === 1 ? (
+              <div>
+                Don't have an account?{" "}
+                <span
+                  style={{ color: "blue", cursor: "pointer" }}
+                  onClick={() => setLoginSignUp(2)}
+                >
+                  Sign Up
+                </span>
+              </div>
+            ) : (
+              <div>
+                Already have an account?{" "}
+                <span
+                  style={{ color: "blue", cursor: "pointer" }}
+                  onClick={() => setLoginSignUp(1)}
+                >
+                  Login
+                </span>
+              </div>
+            )}
+            <div className="login-divider">
+              <div></div>
+              <div>or</div>
+              <div></div>
             </div>
-          )}
-          <div className="forgot-password">
-            <div>
-              <input type="checkbox" /> remember me
+            <div className="googleLogin">
+              <button onClick={signInWithGoogle}>
+                {" "}
+                <img
+                  src="https://img.icons8.com/fluency/512/google-logo.png"
+                  alt=""
+                />{" "}
+                Sign in with google
+              </button>
             </div>
-            <div>Forgot Password?</div>
-          </div>
-          <div onClick={handleLogin} className="login-button">
-            <button>
-              {loading ? (
-                <img src={Loader} />
-              ) : loginSignUp === 1 ? (
-                "Login"
-              ) : (
-                "Sign Up"
-              )}{" "}
-            </button>
-          </div>
-          {loginSignUp === 1 ? (
-            <div>
-              Don't have an account?{" "}
-              <span
-                style={{ color: "blue", cursor: "pointer" }}
-                onClick={() => setLoginSignUp(2)}
-              >
-                Sign Up
-              </span>
-            </div>
-          ) : (
-            <div>
-              Already have an account?{" "}
-              <span
-                style={{ color: "blue", cursor: "pointer" }}
-                onClick={() => setLoginSignUp(1)}
-              >
-                Login
-              </span>
-            </div>
-          )}
-          <div className="login-divider">
-            <div></div>
-            <div>or</div>
-            <div></div>
-          </div>
-          <div className="googleLogin">
-            <button onClick={signInWithGoogle}>
-              {" "}
-              <img
-                src="https://img.icons8.com/fluency/512/google-logo.png"
-                alt=""
-              />{" "}
-              Sign in with google
-            </button>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
 }
