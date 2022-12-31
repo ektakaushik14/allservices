@@ -115,6 +115,16 @@
   opacity: 1;
   right: 0;
 }
+
+.signInPrompt {
+  position: absolute;
+  bottom: 5%;
+  left: 2%;
+  background: rgba(38, 38, 38, 0.498);
+  padding: 1rem;
+  border-radius: 12px;
+  color: white;
+}
 @keyframes animation {
   to {
     /* top: 70%; */
