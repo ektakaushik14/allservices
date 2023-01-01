@@ -1,0 +1,53 @@
+.pageNotFound {
+  height: 100vh;
+  background-color: #181818;
+  color: #c4c4c4;
+  position: relative;
+}
+
+.pageNotFoundContent {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 4rem;
+  line-height: 3.8rem;
+  margin: auto;
+  padding: 3rem 0;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pageNotFoundButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pageNotFoundButton button {
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 2px solid #b2b2b2;
+  border-radius: 50px;
+  font-size: 11px;
+  transition: 0.4s;
+  background-color: #181818;
+  color: inherit;
+  padding: 0.25rem 1.5rem;
+  font-size: 14px;
+  font-weight: 700;
+}
+.pageNotFoundButton button:hover {
+  background-color: #b2b2b2;
+  color: #000;
+}
+
+.pageNotFoundImage {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pageNotFoundImage img {
+  height: 300px;
+}/*# sourceMappingURL=pageNotFound.css.map */
