@@ -1,12 +1,12 @@
 import React from "react";
-
+import PriceCard from "./PriceCard";
+import "./Pricing.css";
 export default function Pricing() {
   return (
     <div className="pricing">
       <div className="price-title">
         <div>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus,
-          velit.
+          Lorem ipsum, dolor sit amet offence consectetur adipisicing elit.
         </div>
         <div>
           <img
@@ -15,7 +15,9 @@ export default function Pricing() {
           />
         </div>
       </div>
-      <div className="price-card"></div>
+      <div className="price-card">
+        <PriceCard />
+      </div>
     </div>
   );
 }

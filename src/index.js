@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import Login from "./Components/Login/Login";
 import PageNotFound from "./Components/404Page/404Page";
 import Support from "./Components/Support/Support";
+import Pricing from "./Components/Pricing/Pricing";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/support",
     element: <Support />,
+  },
+  {
+    path: "/pricing",
+    element: <Pricing />,
   },
   {
     path: "*",

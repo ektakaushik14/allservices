@@ -1,6 +1,4 @@
 import "./landing.css";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
 import Nav from "../Nav/Nav";
 import { useState } from "react";
 export default function Landing() {
