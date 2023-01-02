@@ -1,0 +1,15 @@
+.CancelButton {
+  position: absolute;
+  top: 5%;
+  left: 95%;
+  height: 2rem;
+  width: 2rem;
+}
+
+.CancelButton img {
+  height: 2rem;
+  position: absolute;
+  width: 2rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}/*# sourceMappingURL=CancelButton.css.map */
