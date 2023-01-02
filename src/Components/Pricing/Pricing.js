@@ -1,9 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PriceCard from "./PriceCard";
 import "./Pricing.css";
 export default function Pricing() {
   return (
     <div className="pricing">
+      <Link to="/">
+        <div className="pricing-cancel">
+          <img
+            src="https://www.iconpacks.net/icons/3/free-icon-x-10327.png"
+            alt=""
+          />
+        </div>
+      </Link>
       <div className="price-title">
         <div>
           Lorem ipsum, dolor sit amet offence consectetur adipisicing elit.
