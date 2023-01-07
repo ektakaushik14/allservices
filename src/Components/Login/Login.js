@@ -3,13 +3,16 @@ import { Navigate, useNavigate } from "react-router-dom";
 import "./login.css";
 import Loader from "../../Images/loader.png";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+import { collection, addDoc } from "firebase/firestore";
+import { getCurrentDate } from "../../utils/helper_functions";
+
 export default function Login() {
   const navigate = useNavigate();
   const [user, loadingg] = useAuthState(auth);
@@ -37,15 +40,33 @@ export default function Login() {
           setLoading(false);
         });
     } else {
+      if (name === "") {
+        setError("Name field cannot be empty!");
+        setLoading(false);
+        return;
+      }
+      if (name.length <= 2) {
+        setError("Name must contain at least 2 letters!");
+        setLoading(false);
+        return;
+      }
       createUserWithEmailAndPassword(auth, username, password)
-        .then((creds) => {
-          console.log(creds);
+        .then(async (creds) => {
           setLoading(false);
           setError("");
-          navigate("/");
+          const dateJoined = getCurrentDate();
+          try {
+            const docRef = await addDoc(collection(db, "users"), {
+              email: username,
+              name: name,
+              dateJoined: dateJoined,
+            });
+            navigate("/");
+          } catch (e) {
+            console.log(e);
+          }
         })
         .catch((err) => {
-          console.log(err);
           const errorMessage = err.message;
           setError(errorMessage);
           setLoading(false);

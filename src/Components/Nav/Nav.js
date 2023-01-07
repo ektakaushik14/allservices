@@ -2,19 +2,95 @@ import React, { useEffect, useState } from "react";
 import { signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./nav.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import NavDropdownModal from "./NavDropdownModal";
 import SignInIcon from "../../Images/signInIcon.png";
+
+// name is hardcoded right now!!!!!!
+
 export default function Nav({ isSignedOut, black }) {
   const [user, loading] = useAuthState(auth);
   const [activeNav, setActiveNav] = useState("");
   const [isNavActive, setIsNavActive] = useState(false);
+  const [userImg, setUserImg] = useState("");
+  const [toggleSignedInDropDownModal, setToggleSignedInDropDownModal] =
+    useState(false);
 
-  useEffect(() => {}, [user]);
+  const navigate = useNavigate();
+
+  const handleToggleSignedInDropDownModal = () => {
+    setIsNavActive(false);
+    setToggleSignedInDropDownModal(!toggleSignedInDropDownModal);
+  };
+
+  const handleRedirection = (dest) => {
+    navigate(`/profile?active=${dest}`);
+  };
+
+  const SignedInDropDownModal = ({ img, userName }) => {
+    return (
+      <div className="signedInDropDownModal">
+        <div onClick={handleToggleSignedInDropDownModal}>
+          {img ? <img src={img} alt="" /> : <div>{userName.charAt(0)}</div>}
+        </div>
+      </div>
+    );
+  };
+
+  const SecondDropDownModal = ({ img, userName }) => {
+    return (
+      <div className="secondDropDownModal">
+        <div className="secondDropDownModalHeader">
+          <div>
+            {img ? <img src={img} alt="" /> : <div>{userName.charAt(0)}</div>}
+          </div>
+          <div>{userName}</div>
+        </div>
+        <div className="secondDropDownModalDivider"></div>
+        <div
+          onClick={() => handleRedirection("edit")}
+          className="secondDropDownModalContentContainer"
+        >
+          <div className="secondDropDownModalIcon"></div>
+          <div className="secondDropDownModalTitle">Edit Profile</div>
+          <div className="secondDropDownModalArrow">{">"}</div>
+        </div>
+        <div
+          onClick={() => handleRedirection("settings")}
+          className="secondDropDownModalContentContainer"
+        >
+          <div className="secondDropDownModalIcon"></div>
+          <div className="secondDropDownModalTitle">Settings & Privacy</div>
+          <div className="secondDropDownModalArrow">{">"}</div>
+        </div>
+        <div
+          onClick={() => handleRedirection("help")}
+          className="secondDropDownModalContentContainer"
+        >
+          <div className="secondDropDownModalIcon"></div>
+          <div className="secondDropDownModalTitle">Help & Support</div>
+          <div className="secondDropDownModalArrow">{">"}</div>
+        </div>
+        <div
+          onClick={handleSignOut}
+          className="secondDropDownModalContentContainer"
+        >
+          <div className="secondDropDownModalIcon"></div>
+          <div className="secondDropDownModalTitle">Logout</div>
+          <div className="secondDropDownModalArrow">{">"}</div>
+        </div>
+      </div>
+    );
+  };
+
+  useEffect(() => {
+    setUserImg(user?.photoURL);
+  }, [user]);
 
   const handleActiveNav = (nav) => {
+    setToggleSignedInDropDownModal(false);
     if (nav === activeNav) {
       setActiveNav("");
       setIsNavActive(false);
@@ -26,21 +102,26 @@ export default function Nav({ isSignedOut, black }) {
   const clicked = () => {
     setActiveNav("");
     setIsNavActive(false);
+    setToggleSignedInDropDownModal(false);
   };
   useEffect(() => {
     document.addEventListener("mouseup", function (e) {
       var container = document.querySelector(".navbar");
-      if (!container.contains(e.target)) {
+      var dropDownUserProfile = document.querySelector(".secondDropDownModal");
+      if (
+        !container.contains(e.target) ||
+        !dropDownUserProfile.contains(e.target)
+      ) {
         clicked();
       }
     });
   }, []);
 
   const handleSignOut = () => {
+    setToggleSignedInDropDownModal(false);
     signOut(auth)
       .then(() => {
         isSignedOut(true);
-        console.log("signed out");
       })
       .catch((error) => {
         console.log(error);
@@ -85,14 +166,14 @@ export default function Nav({ isSignedOut, black }) {
             </Link>
           </div>
         ) : (
-          <div className="nav-login-button">
-            <button onClick={handleSignOut}>
-              <img src={SignInIcon} alt="" />
-              Sign Out
-            </button>
-          </div>
+          <SignedInDropDownModal img={userImg} userName="Shanu" />
         )}
       </div>
+      {toggleSignedInDropDownModal ? (
+        <div className="secondDropDownModalContainer">
+          <SecondDropDownModal img={userImg} userName="Shanu" />
+        </div>
+      ) : null}
       <div className="navDropdownModal">
         {isNavActive ? (
           <NavDropdownModal clicked={() => clicked()} data={activeNav} />

@@ -1,3 +1,11 @@
+.blackTrue {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  min-height: 10vh;
+}
 .blackTrue > .navContent a {
   color: black;
 }
@@ -132,6 +140,86 @@
     width: 90%;
     font-size: 12px;
   }
+}
+
+.signedInDropDownModal {
+  & div {
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: green;
+    font-size: 1.2rem;
+    font-weight: 500;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+.secondDropDownModalContainer {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+.secondDropDownModal {
+  width: 300px;
+  border-radius: 10px;
+  background-color: rgb(25, 25, 25);
+  color: white;
+  padding: 1rem 2rem;
+}
+
+.secondDropDownModalHeader {
+  display: flex;
+  align-items: center;
+  & > div:nth-of-type(1) {
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: green;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-right: 1rem;
+  }
+}
+
+.secondDropDownModalDivider {
+  border-bottom: 1px solid rgb(208, 208, 208);
+  margin: 1rem 0;
+}
+
+.secondDropDownModalContentContainer {
+  display: flex;
+  margin: 0.6rem 0;
+  cursor: pointer;
+  padding: 0.4rem;
+  &:hover {
+    background-color: #5a5a5a;
+    border-radius: 10px;
+  }
+}
+
+.secondDropDownModalArrow {
+  margin-left: auto;
+}
+.secondDropDownModalIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 1rem;
+  border-radius: 50%;
+  background-color: grey;
 }
 
 @keyframes transform {

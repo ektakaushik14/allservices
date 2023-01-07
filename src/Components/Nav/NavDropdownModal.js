@@ -2,22 +2,25 @@ import React, { useEffect, useState } from "react";
 import NavData from "./navConstants";
 import Workbench from "../../Images/workbench.png";
 import SmartPhone from "../../Images/smartphone.png";
+import { useNavigate } from "react-router-dom";
 
 export default function NavDropdownModal({ data, clicked }) {
   const [selectedNavData, setSelectedNavData] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     setSelectedNavData(NavData[0][data]);
   }, [data]);
 
- 
-
   const SelectedNavContent = () => {
+    const handleNavContentClick = (link) => {
+      navigate(link);
+    };
     return (
       <div className="selectedNavContent">
         {selectedNavData &&
           selectedNavData.map((m) => (
-            <div>
+            <div onClick={() => handleNavContentClick(m.link)}>
               <div className="selectedNavContentImg">
                 <img src={m.icon} alt="" />
               </div>

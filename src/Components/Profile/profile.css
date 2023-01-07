@@ -1,0 +1,74 @@
+.profile {
+  height: 90vh;
+}
+
+.profileNavContainer {
+  height: 100%;
+}
+
+.profileNav {
+  border: 2px solid rgba(230, 228, 228, 0.723);
+  margin-top: 5rem;
+  width: 20%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.profileNavHeader {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+.profileNavHeader > div:nth-of-type(1) {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profileNavHeader img {
+  width: 14px;
+  height: 14px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.profileNavHeader > div:nth-of-type(2) {
+  margin-left: 0.4rem;
+}
+
+.personalSettings {
+  margin-top: 2rem;
+}
+.personalSettings img {
+  width: 24px;
+  height: 24px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-right: 0.4rem;
+}
+
+.personalSettingsHeader {
+  display: flex;
+  color: grey;
+  font-size: 16px;
+}
+
+.personalSettingsContent {
+  margin-left: calc(0.4rem + 24px);
+  font-size: 14px;
+}
+.personalSettingsContent div {
+  padding: 0.4rem;
+  margin: 0.4rem 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.personalSettingsContent div:is(:hover) {
+  background-color: rgba(238, 238, 238, 0.565);
+  color: black;
+}
+
+.personalSettingsContent .active {
+  background-color: rgba(238, 238, 238, 0.565);
+  color: black;
+}/*# sourceMappingURL=profile.css.map */

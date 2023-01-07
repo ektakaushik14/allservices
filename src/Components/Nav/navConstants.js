@@ -1,4 +1,3 @@
-
 const NavData = [
   {
     Features: [
@@ -58,11 +57,13 @@ const NavData = [
         heading: "About Us",
         subHeading: "lorem lorem lorem lorem lorem lorem lorem lorem",
         icon: "",
+        link: "/about",
       },
       {
         heading: "Contact Us",
         subHeading: "lorem lorem lorem lorem lorem lorem lorem lorem",
         icon: "",
+        link: "/support",
       },
       {
         heading: "Terms of Use",

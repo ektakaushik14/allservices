@@ -1,16 +1,14 @@
-// import Landing from "./Components/Landing/Landing";
+import Landing from "./Components/Landing/Landing";
 import "./App.css";
-// import Services from "./Components/Services/Services";
-// import Content from "./Components/Contents/Content";
-import AboutUs from "./Components/AboutUs/AboutUs";
+import Services from "./Components/Services/Services";
+import Content from "./Components/Contents/Content";
 
 function App() {
   return (
     <div className="App">
-      {/* <Landing />
+      <Landing />
       <Services />
-      <Content /> */}
-      <AboutUs />
+      <Content />
     </div>
   );
 }

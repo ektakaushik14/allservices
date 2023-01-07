@@ -8,6 +8,9 @@ import Login from "./Components/Login/Login";
 import PageNotFound from "./Components/404Page/404Page";
 import Support from "./Components/Support/Support";
 import Pricing from "./Components/Pricing/Pricing";
+import AboutUs from "./Components/AboutUs/AboutUs";
+import Profile from "./Components/Profile/Profile";
+import TermsAndConditions from "./Components/Terms&Conditions/TermsAndConditions";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -27,6 +30,18 @@ const router = createBrowserRouter([
   {
     path: "/pricing",
     element: <Pricing />,
+  },
+  {
+    path: "/about",
+    element: <AboutUs />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+  },
+  {
+    path: "/terms",
+    element: <TermsAndConditions />,
   },
   {
     path: "*",
