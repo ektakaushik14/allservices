@@ -2,7 +2,7 @@
 .aboutus {
   min-height: 200vh;
   width: 100%;
-  background-color: black;
+  background-color: #0e1425;
 }
 .aboutus > :nth-child(1) {
   height: 70vh;
@@ -16,11 +16,11 @@
   padding-left: 5rem;
   align-items: center;
   font-size: 2rem;
-  color: white;
+  color: #f7e2e2;
 }
 .aboutus > :nth-child(1) > :nth-child(2) {
   flex: 1.3;
-  color: white;
+  color: #f7e2e2;
   display: flex;
   padding-top: 3rem;
   flex-direction: column;

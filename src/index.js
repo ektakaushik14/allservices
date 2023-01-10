@@ -11,6 +11,7 @@ import Pricing from "./Components/Pricing/Pricing";
 import AboutUs from "./Components/AboutUs/AboutUs";
 import Profile from "./Components/Profile/Profile";
 import TermsAndConditions from "./Components/Terms&Conditions/TermsAndConditions";
+import Privacy from "./Components/Privacy/Privacy";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -40,7 +41,11 @@ const router = createBrowserRouter([
     element: <Profile />,
   },
   {
-    path: "/terms",
+    path: "/privacy",
+    element: <Privacy />,
+  },
+  {
+    path: "/terms&conditions",
     element: <TermsAndConditions />,
   },
   {
