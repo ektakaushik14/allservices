@@ -4,18 +4,30 @@ import Search from "../../Images/search.png";
 import "./actAs.css";
 
 export default function ActAs() {
-  const [openChat, setOpenChat] = useState({});
-  const inputSearch = useRef();
+  const [openChat, setOpenChat] = useState({ name: constants[0] });
+  const [inputSearch, setInputSearch] = useState("");
+  const [chatContent, setChatContent] = useState({});
 
-  const handleSelectUser = (random, name) => {
-    setOpenChat({ name: name, img: random });
+  const handleSelectUser = (random, name, key) => {
+    setOpenChat((prev) => (prev = { name: name, img: random, index: key }));
   };
 
-  const Chat = ({ name }) => {
+  const handleChatContent = (content, chatName) => {
+    setChatContent({ ...chatContent, [chatName]: { ask: content, reply: "" } });
+  };
+
+  useEffect(() => {
+    console.log(chatContent);
+  }, [chatContent]);
+
+  const Chat = ({ name, index }) => {
     const random = Math.floor(Math.random() * constants.length) + 1;
 
     return (
-      <div onClick={() => handleSelectUser(random, name)}>
+      <div
+        className={openChat.index === index ? "acitveChat" : ""}
+        onClick={() => handleSelectUser(random, name, index)}
+      >
         <div className="individualChat">
           <div>
             <img
@@ -33,35 +45,7 @@ export default function ActAs() {
     );
   };
 
-  const ActiveAsAChats = () => {
-    return (
-      <div className="activeAsAChats">
-        <div>
-          <div>Inbox</div>
-          <div className="individualChatSearch">
-            <input
-              ref={inputSearch}
-              value={inputSearch.current}
-              onChange={(e) => (inputSearch.current = e.target.value)}
-              type="text"
-            />
-            <img src={Search} alt="" />
-          </div>
-        </div>
-        <div>
-          <div className="activeAsAChatsActive">Unlocked</div>
-          <div>Locked</div>
-        </div>
-        <div className="individualChatContainer">
-          {constants.map((name) => (
-            <Chat name={name} />
-          ))}
-        </div>
-      </div>
-    );
-  };
   const OpenChat = () => {
-    const random = Math.floor(Math.random() * constants.length) + 1;
     return (
       <div className="openChat">
         <div className="openChatHeader">
@@ -79,9 +63,19 @@ export default function ActAs() {
             <div></div>
           </div>
         </div>
-        <div className="openChatSection"></div>
+        <div className="openChatSection">
+          {chatContent[openChat.name] && chatContent[openChat.name]["ask"]}
+        </div>
         <div className="openChatInput">
-          <input type="text" placeholder="Ask anything..." />
+          <input
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleChatContent(e.target.value, openChat.name);
+              }
+            }}
+            type="text"
+            placeholder="Ask anything..."
+          />
         </div>
       </div>
     );
@@ -89,9 +83,33 @@ export default function ActAs() {
 
   return (
     <div className="actAs">
-      <ActiveAsAChats />
+      <div className="activeAsAChats">
+        <div>
+          <div>Inbox</div>
+          <div className="individualChatSearch">
+            <input
+              value={inputSearch}
+              onChange={(e) => {
+                setInputSearch(e.target.value);
+              }}
+              type="text"
+            />
+            <img src={Search} alt="" />
+          </div>
+        </div>
+        <div>
+          <div className="activeAsAChatsActive">Unlocked</div>
+          <div>Locked</div>
+        </div>
+        <div className="individualChatContainer">
+          {constants
+            .filter((name) => name.toLowerCase().includes(inputSearch))
+            .map((name, key) => (
+              <Chat key={key} index={key} name={name} />
+            ))}
+        </div>
+      </div>
       <OpenChat />
-
       <div></div>
     </div>
   );
