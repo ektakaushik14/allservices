@@ -50,9 +50,17 @@
   }
 }
 
-#logo {
+.logo {
   cursor: pointer;
   margin-right: 3rem;
+  height: 170px;
+  width: 170px;
+  margin-top: 0.8rem;
+}
+.logo img {
+  height: 170px;
+  width: 170px;
+  object-fit: contain;
 }
 .nav-login-button {
   cursor: pointer;

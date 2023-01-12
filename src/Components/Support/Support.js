@@ -1,10 +1,15 @@
 import React from "react";
+import CancelButton from "../CancelButton/CancelButton";
+import { Link } from "react-router-dom";
 import Nav from "../Nav/Nav";
 import "./support.css";
 export default function Support() {
   return (
     <div className="support">
       <Nav black={true} />
+      <Link to="/">
+        <CancelButton />
+      </Link>
       <div className="supportHeading">
         <div>Start the conversation</div>
         <div>For inquiries fill out the form below</div>
@@ -37,7 +42,7 @@ export default function Support() {
           </div>
           <div className="supportMessage">
             <h4>Message</h4>
-            <input type="text" />
+            <input placeholder="Let us know how we can help..." type="text" />
           </div>
           <div className="supportSubmitButton">
             <button>Submit</button>

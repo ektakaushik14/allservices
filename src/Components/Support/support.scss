@@ -1,3 +1,4 @@
+@import "../../theme/theme.scss";
 .support {
   min-height: 100vh;
   .supportHeading {
@@ -29,8 +30,8 @@
         flex: 1;
         ::placeholder {
           /* Chrome, Firefox, Opera, Safari 10.1+ */
-          color: black;
-          font-size: 1rem;
+          color: grey;
+          font-size: .8rem;
           opacity: 1; /* Firefox */
         }
 
@@ -49,9 +50,9 @@
         & > div {
           margin: 0 0 3rem 0;
           h4 {
-            font-size: 0.8rem;
+            font-size: .8rem;
             text-transform: capitalize;
-            color: grey;
+            color: black;
             font-weight: 300;
           }
           input {
@@ -75,7 +76,7 @@
   h4 {
     font-size: 0.8rem;
     text-transform: capitalize;
-    color: grey;
+    color: black;
     font-weight: 300;
   }
   input {
