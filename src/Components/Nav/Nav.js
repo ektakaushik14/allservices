@@ -7,6 +7,7 @@ import "./nav.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import NavDropdownModal from "./NavDropdownModal";
 import SignInIcon from "../../Images/signInIcon.png";
+import CompanyLogo from "../../Images/CompanyLogo.png";
 
 // name is hardcoded right now!!!!!!
 
@@ -132,8 +133,10 @@ export default function Nav({ isSignedOut, black }) {
     <div className={black ? "blackTrue" : "navbar"}>
       <div className="navContent">
         <div>
-          <div id="logo">
-            <Link to="/">Logo</Link>
+          <div className="logo">
+            <Link to="/">
+              <img src={CompanyLogo} />
+            </Link>
           </div>
           <div className="navLinks">
             <ul>

@@ -33,20 +33,20 @@
 }
 .supportSubHeading form > div > div ::-moz-placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: black;
-  font-size: 1rem;
+  color: grey;
+  font-size: 0.8rem;
   opacity: 1; /* Firefox */
 }
 .supportSubHeading form > div > div :-ms-input-placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: black;
-  font-size: 1rem;
+  color: grey;
+  font-size: 0.8rem;
   opacity: 1; /* Firefox */
 }
 .supportSubHeading form > div > div ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: black;
-  font-size: 1rem;
+  color: grey;
+  font-size: 0.8rem;
   opacity: 1; /* Firefox */
 }
 .supportSubHeading form > div > div :-ms-input-placeholder {
@@ -65,7 +65,7 @@
 .supportSubHeading form > div > div > div h4 {
   font-size: 0.8rem;
   text-transform: capitalize;
-  color: grey;
+  color: black;
   font-weight: 300;
 }
 .supportSubHeading form > div > div > div input {
@@ -85,7 +85,7 @@
 .supportMessage h4 {
   font-size: 0.8rem;
   text-transform: capitalize;
-  color: grey;
+  color: black;
   font-weight: 300;
 }
 .supportMessage input {
