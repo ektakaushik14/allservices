@@ -12,6 +12,7 @@ import AboutUs from "./Components/AboutUs/AboutUs";
 import Profile from "./Components/Profile/Profile";
 import TermsAndConditions from "./Components/Terms&Conditions/TermsAndConditions";
 import Privacy from "./Components/Privacy/Privacy";
+import ActAs from "./Components/ActAsA/ActAs";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: "/terms&conditions",
     element: <TermsAndConditions />,
+  },
+  {
+    path: "/act-as-a",
+    element: <ActAs />,
   },
   {
     path: "*",

@@ -155,7 +155,12 @@ export default function Nav({ isSignedOut, black }) {
               <li>
                 <Link to="/support">Support</Link>
               </li>
-              <Link to="/pricing">Pricing</Link>
+              <li>
+                <Link to="/pricing">Pricing</Link>
+              </li>
+              <li>
+                <Link to="/act-as-a">Explore</Link>
+              </li>
             </ul>
           </div>
         </div>
