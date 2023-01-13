@@ -2,22 +2,32 @@ import React, { useEffect, useRef, useState } from "react";
 import constants from "./constants";
 import Search from "../../Images/search.png";
 import "./actAs.css";
+import { data, getImage } from "./IndividualAct";
+import CompanyLogo from "../../Images/CompanyLogo.png";
 
 export default function ActAs() {
   const [openChat, setOpenChat] = useState({ name: constants[0] });
   const [inputSearch, setInputSearch] = useState("");
   const [chatContent, setChatContent] = useState({});
+  const [chat, setChat] = useState();
 
   const handleSelectUser = (random, name, key) => {
     setOpenChat((prev) => (prev = { name: name, img: random, index: key }));
   };
 
   const handleChatContent = (content, chatName) => {
-    setChatContent({ ...chatContent, [chatName]: { ask: content, reply: "" } });
+    setChatContent({ ...chatContent, [chatName]: { ask: content } });
   };
 
   useEffect(() => {
-    console.log(chatContent);
+    getImage()
+    const dataa = chatContent[openChat.name];
+
+    if (dataa && dataa["ask"]) {
+      data(dataa["ask"], openChat.name).then((data) => {
+        setChat(data);
+      });
+    }
   }, [chatContent]);
 
   const Chat = ({ name, index }) => {
@@ -64,7 +74,18 @@ export default function ActAs() {
           </div>
         </div>
         <div className="openChatSection">
-          {chatContent[openChat.name] && chatContent[openChat.name]["ask"]}
+          <div>
+            <div></div>
+            <div>
+              {chatContent[openChat.name] && chatContent[openChat.name]["ask"]}
+            </div>
+          </div>
+          <div>
+            <div>
+              <img src={CompanyLogo} />
+            </div>
+            <div>{chat}</div>
+          </div>
         </div>
         <div className="openChatInput">
           <input
