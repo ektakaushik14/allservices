@@ -128,6 +128,21 @@
     padding-right: 0.5rem;
   }
 }
+
+.welcomePage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+  color: $text-primary;
+  img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+  }
+}
+
 .openChat {
   width: 70%;
   height: 100%;
@@ -138,6 +153,7 @@
 .openChatHeader {
   border-bottom: 2px solid rgb(63, 63, 63);
   padding: 2rem;
+  height: 15vh;
   display: flex;
   .openChatHeaderNameContainer {
     flex: 1;
@@ -171,12 +187,17 @@
   }
 }
 .openChatSection {
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   flex: 1;
   color: white;
+  height: 75vh;
   font-size: 0.9rem;
   text-transform: capitalize;
   background-color: $chat-page-background-secondary;
-  & > :nth-child(1) {
+  & > div {
     min-height: 10vh;
     width: 100%;
     display: flex;
@@ -186,7 +207,15 @@
       height: 2rem;
       width: 2rem;
       border-radius: 50%;
-      background-color: #fff;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      & > img {
+        height: 1.5rem;
+        width: 1.5rem;
+        object-fit: contain;
+      }
     }
     & > :nth-child(2) {
       padding: 1.5rem 0rem;
@@ -194,7 +223,7 @@
       padding-left: 1rem;
     }
   }
-  & > :nth-child(2) {
+  .openChatSectionAnswer {
     min-height: 10vh;
     padding-left: 1rem;
     width: 100%;
@@ -222,6 +251,7 @@
 
 .openChatInput {
   padding: 2rem;
+  height: 15vh;
   input {
     width: 100%;
     padding: 1rem;

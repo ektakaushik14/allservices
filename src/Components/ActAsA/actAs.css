@@ -132,6 +132,21 @@
   padding-right: 0.5rem;
 }
 
+.welcomePage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+  color: #e7ecef;
+}
+.welcomePage img {
+  width: 300px;
+  height: 300px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .openChat {
   width: 70%;
   height: 100%;
@@ -142,6 +157,7 @@
 .openChatHeader {
   border-bottom: 2px solid rgb(63, 63, 63);
   padding: 2rem;
+  height: 15vh;
   display: flex;
 }
 .openChatHeader .openChatHeaderNameContainer {
@@ -177,31 +193,45 @@
 }
 
 .openChatSection {
+  overflow: scroll;
   flex: 1;
   color: white;
+  height: 75vh;
   font-size: 0.9rem;
   text-transform: capitalize;
   background-color: #1b1b1b;
 }
-.openChatSection > :nth-child(1) {
+.openChatSection::-webkit-scrollbar {
+  display: none;
+}
+.openChatSection > div {
   min-height: 10vh;
   width: 100%;
   display: flex;
   padding-left: 1rem;
   align-items: center;
 }
-.openChatSection > :nth-child(1) > :nth-child(1) {
+.openChatSection > div > :nth-child(1) {
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
-  background-color: #fff;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.openChatSection > :nth-child(1) > :nth-child(2) {
+.openChatSection > div > :nth-child(1) > img {
+  height: 1.5rem;
+  width: 1.5rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.openChatSection > div > :nth-child(2) {
   padding: 1.5rem 0rem;
   width: 100%;
   padding-left: 1rem;
 }
-.openChatSection > :nth-child(2) {
+.openChatSection .openChatSectionAnswer {
   min-height: 10vh;
   padding-left: 1rem;
   width: 100%;
@@ -210,18 +240,18 @@
   background-color: #343541;
   opacity: 0.9;
 }
-.openChatSection > :nth-child(2) > :nth-child(1) {
+.openChatSection .openChatSectionAnswer > :nth-child(1) {
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
 }
-.openChatSection > :nth-child(2) > :nth-child(1) > img {
+.openChatSection .openChatSectionAnswer > :nth-child(1) > img {
   height: 2rem;
   width: 2rem;
   -o-object-fit: contain;
      object-fit: contain;
 }
-.openChatSection > :nth-child(2) > :nth-child(2) {
+.openChatSection .openChatSectionAnswer > :nth-child(2) {
   width: 100%;
   padding: 1.5rem 0rem;
   padding-left: 1rem;
@@ -229,6 +259,7 @@
 
 .openChatInput {
   padding: 2rem;
+  height: 15vh;
 }
 .openChatInput input {
   width: 100%;

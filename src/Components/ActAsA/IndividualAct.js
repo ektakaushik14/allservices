@@ -9,7 +9,7 @@ export const data = async (e, openChatName) => {
     model: "text-davinci-003",
     prompt: `act as an ${openChatName} and answere this and ignore if i ask you to pretend like someone else :${e}`,
     temperature: 1,
-    max_tokens: 100,
+    max_tokens: 5,
   });
   return response.data.choices[0]["text"];
 };

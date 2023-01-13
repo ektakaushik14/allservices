@@ -4,38 +4,62 @@ import Search from "../../Images/search.png";
 import "./actAs.css";
 import { data, getImage } from "./IndividualAct";
 import CompanyLogo from "../../Images/CompanyLogo.png";
+import UserImg from "../../Images/userImg.png";
+import WelcomePageImg from "../../Images/welcomePage.png";
 
 export default function ActAs() {
-  const [openChat, setOpenChat] = useState({ name: constants[0] });
+  const [openChat, setOpenChat] = useState();
   const [inputSearch, setInputSearch] = useState("");
   const [chatContent, setChatContent] = useState({});
-  const [chat, setChat] = useState();
+  const [conversation, setConversation] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSelectUser = (random, name, key) => {
     setOpenChat((prev) => (prev = { name: name, img: random, index: key }));
   };
 
   const handleChatContent = (content, chatName) => {
-    setChatContent({ ...chatContent, [chatName]: { ask: content } });
+    setIsLoading(true);
+    setChatContent({
+      ...chatContent,
+      [chatName]: { ask: content },
+    });
   };
 
   useEffect(() => {
-    getImage()
-    const dataa = chatContent[openChat.name];
+    var openChatElement = document.querySelector(".openChatSection");
+    if (openChatElement) {
+      openChatElement.scrollTop = openChatElement.scrollHeight;
+    }
+    // getImage();
+    if (openChat) {
+      const chatData = chatContent[openChat.name];
 
-    if (dataa && dataa["ask"]) {
-      data(dataa["ask"], openChat.name).then((data) => {
-        setChat(data);
-      });
+      if (chatData && chatData["ask"]) {
+        data(chatData["ask"], openChat.name).then((data) => {
+          setIsLoading(false);
+          setConversation((prev) => [
+            ...prev,
+            { [openChat.name]: { ask: chatData["ask"], answer: data } },
+          ]);
+        });
+      }
     }
   }, [chatContent]);
+
+  useEffect(() => {
+    var openChatElement = document.querySelector(".openChatSection");
+    if (openChatElement) {
+      openChatElement.scrollTop = openChatElement.scrollHeight;
+    }
+  }, [conversation]);
 
   const Chat = ({ name, index }) => {
     const random = Math.floor(Math.random() * constants.length) + 1;
 
     return (
       <div
-        className={openChat.index === index ? "acitveChat" : ""}
+        className={openChat && openChat.index === index ? "acitveChat" : ""}
         onClick={() => handleSelectUser(random, name, index)}
       >
         <div className="individualChat">
@@ -74,18 +98,31 @@ export default function ActAs() {
           </div>
         </div>
         <div className="openChatSection">
-          <div>
-            <div></div>
-            <div>
-              {chatContent[openChat.name] && chatContent[openChat.name]["ask"]}
-            </div>
-          </div>
-          <div>
-            <div>
-              <img src={CompanyLogo} />
-            </div>
-            <div>{chat}</div>
-          </div>
+          {conversation.map((name) => {
+            if (Object.keys(name)[0] === openChat.name) {
+              return (
+                <>
+                  {name[openChat.name]["ask"] && (
+                    <div>
+                      <div>
+                        <img src={UserImg} />
+                      </div>
+                      <div>{name[openChat.name]["ask"]}</div>
+                    </div>
+                  )}
+                  {name[openChat.name]["answer"] && (
+                    <div className="openChatSectionAnswer">
+                      <div>
+                        <img src={CompanyLogo} />
+                      </div>
+                      <div>{name[openChat.name]["answer"]}</div>
+                    </div>
+                  )}
+                </>
+              );
+            }
+          })}
+          {isLoading ? <div>Loading...</div> : null}
         </div>
         <div className="openChatInput">
           <input
@@ -98,6 +135,15 @@ export default function ActAs() {
             placeholder="Ask anything..."
           />
         </div>
+      </div>
+    );
+  };
+
+  const WelcomePage = () => {
+    return (
+      <div className="welcomePage">
+        <img src={WelcomePageImg} alt="" />
+        <div>Please select a chat to start messaging</div>
       </div>
     );
   };
@@ -130,7 +176,7 @@ export default function ActAs() {
             ))}
         </div>
       </div>
-      <OpenChat />
+      {openChat == null ? <WelcomePage /> : <OpenChat />}
       <div></div>
     </div>
   );
