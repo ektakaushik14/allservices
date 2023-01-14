@@ -1,6 +1,100 @@
 @import "./../../theme/theme";
-.actAs {
+.actAsContainer {
   height: 100vh;
+  background: $chat-page;
+}
+.actAsHeaderContainer {
+  border-bottom: 2px solid black;
+}
+.actAsHeader {
+  height: 10vh;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.actAsHeaderLogo {
+  width: 80px;
+  height: 80px;
+  img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+}
+
+.actAsHeaderContent {
+  display: flex;
+  color: $chat-page-primary-color;
+  & > div:nth-of-type(3) {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: green;
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.themeSwitcher {
+  margin: 0 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background 0.2s linear;
+}
+.themeSwitcher.dark {
+  background-color: #292c35;
+}
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  width: 30px;
+  height: 15px;
+  background-color: #111;
+  display: flex;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  transform: scale(1.5);
+}
+
+.ball {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+/*  target the elemenent after the label*/
+.checkbox:checked + .label .ball {
+  transform: translateX(16px);
+}
+
+.fas {
+  width: 10px;
+  height: 10px;
+}
+
+.actAs {
+  height: 90vh;
   background: $chat-page;
   overflow: hidden;
   display: flex;
@@ -10,9 +104,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  border-right: 2px solid rgb(63, 63, 63);
-  padding: 2rem 2rem 0 2rem;
-  width: 30%;
+  padding: 2rem 1rem 0 1rem;
+  width: 25%;
   height: 100%;
   & > div {
     width: 100%;
@@ -21,39 +114,17 @@
     margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
-    div {
-      font-size: 1.2rem;
-      color: $chat-page-primary-color;
-    }
     img {
       width: 24px;
       height: 24px;
       object-fit: contain;
     }
   }
-  & > div:nth-of-type(2) {
-    background-color: $chat-page-background-secondary;
-    display: flex;
-    justify-content: space-around;
-    color: $chat-page-primary-color;
-    border-radius: 8px;
-    padding: 0.8rem;
-    & > div {
-      width: 100%;
-      padding: 0.2rem;
-      margin: 0 0.1rem;
-      border-radius: 8px;
-      text-align: center;
-    }
-  }
-}
-
-.activeAsAChatsActive {
-  background: $chat-page;
 }
 
 .acitveChat {
   background-color: #383838;
+  border-radius: 10px;
 }
 
 .individualChatContainer {
@@ -63,11 +134,12 @@
   }
   margin-top: 1rem;
   & > div {
-    border-bottom: 2px solid rgba(63, 63, 63, 0.657);
+    // border-bottom: 2px solid rgba(63, 63, 63, 0.657);
     padding: 0.5rem;
   }
   & > div:hover {
     background-color: #383838;
+    border-radius: 10px;
   }
 }
 .individualChat {
@@ -111,21 +183,23 @@
   }
 }
 .individualChatSearch {
-  background: $chat-page-background-secondary;
+  background: #15171c;
   display: flex;
   align-items: center;
-  width: 50%;
+  justify-content: space-between;
+  width: 100%;
   border-radius: 10px;
   padding: 0.4rem;
   & input {
     margin: 0 0.2rem;
     color: $chat-page-primary-color;
     border: none;
+    width: 100%;
     outline: none;
     background-color: transparent;
   }
   & img {
-    padding-right: 0.5rem;
+    margin-right: 0.5rem;
   }
 }
 
@@ -134,7 +208,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 70%;
+  flex: 1;
   color: $text-primary;
   img {
     width: 300px;
@@ -144,31 +218,37 @@
 }
 
 .openChat {
-  width: 70%;
+  border-radius: 12px;
+  background-color: #1d1e24;
+  margin: 2rem 1rem 0 1rem;
+  width: 50%;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .openChatHeader {
-  border-bottom: 2px solid rgb(63, 63, 63);
   padding: 2rem;
-  height: 15vh;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background: #000000;
+  height: 5vh;
   display: flex;
+  align-items: center;
   .openChatHeaderNameContainer {
     flex: 1;
   }
   .openChatHeaderName {
-    font-size: 1.4rem;
+    font-weight: 400;
+    font-size: 14px;
     color: $chat-page-primary-color;
   }
-  .openChatHeaderTime {
-    color: $chat-page-secondary-color;
-  }
   img {
+    border-radius: 50%;
+    background-color: white;
     margin-right: 1rem;
-    height: 48px;
-    width: 48px;
+    height: 22px;
+    width: 22px;
     object-fit: contain;
   }
 }
@@ -177,14 +257,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  & > div {
-    width: 4px;
-    height: 4px;
-    background-color: $chat-page-secondary-color;
-    border-radius: 50%;
-    margin: 2px 0;
-  }
+  background: #20232b;
+  border-radius: 10px;
+  padding: 0.4rem;
+  font-size: 14px;
+  color: $chat-page-primary-color;
 }
 .openChatSection {
   overflow: scroll;
@@ -193,10 +270,9 @@
   }
   flex: 1;
   color: white;
-  height: 75vh;
   font-size: 0.9rem;
   text-transform: capitalize;
-  background-color: $chat-page-background-secondary;
+  background-color: #1d1e24;
   & > div {
     min-height: 10vh;
     width: 100%;
@@ -248,17 +324,80 @@
     }
   }
 }
+.openChatInputContainer {
+  width: 100%;
+  background-color: #1d1e24;
+  height: 15vh;
+}
 
 .openChatInput {
-  padding: 2rem;
-  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+  background: #15171c;
+  width: 90%;
+  border-radius: 10px;
+  img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    margin: 0 0.4rem;
+  }
   input {
+    background: transparent;
     width: 100%;
     padding: 1rem;
-    border-radius: 10px;
     border: none;
     outline: none;
-    background: $chat-page-background-secondary;
     color: $chat-page-primary-color;
+  }
+}
+
+.actAsRightSection {
+  margin: 2rem 1rem 1rem 1rem;
+  flex: 1;
+}
+
+.actAsRightSectionTopCard {
+  padding: 1rem;
+  border-radius: 10px;
+  background: #5853d6;
+  color: $chat-page-primary-color;
+  & > div:nth-of-type(2) {
+    margin-top: 1rem;
+    & > div {
+      display: flex;
+      & > div:nth-of-type(1) {
+        font-size: 14px;
+        padding: 0.5rem 0;
+      }
+    }
+  }
+}
+.actAsRightSectionTopCardImg {
+  display: flex;
+  align-items: center;
+  img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    background-color: white;
+    margin-right: 1rem;
+    border-radius: 50%;
+  }
+}
+
+.actAsRightSectionBottomContent {
+  margin-top: 2rem;
+  color: $chat-page-primary-color;
+  & > div:nth-of-type(2) {
+    margin-top: 1rem;
+    & > div {
+      height: 50px;
+      background: #15171c;
+      border-radius: 10px;
+      margin: 0.8rem 0;
+    }
   }
 }
