@@ -1,194 +1,54 @@
 import React from "react";
 import "./PriceCard.css";
-export default function PriceCard() {
+import Check from "../../Images/check.png";
+import Unavailable from "../../Images/unavailable.png";
+import Life from "../../Images/life.png";
+import Boat from "../../Images/boat.png";
+export default function PriceCard({
+  features,
+  isPaid,
+  nonFeatures,
+  price,
+  subTitle,
+  subheading,
+  title,
+}) {
   return (
-    <div className="PriceCard">
-      <div className="price-card1">
-        <div>
-          <div>
-            <div>FREE</div>
-            <div>Basic Plan</div>
-          </div>
-          <div>
-            <div>
-              <span>$0</span>/mo
-            </div>
-          </div>
-          <div>
-            <button>
-              <h1>Coming Soon</h1>
-            </button>
-          </div>
-          <div></div>
-          <div>
-            <div>
-              <div>
-                <h1>1 e-line</h1>
-              </div>
-              <div>
-                <h1>Single user accounts</h1>
-              </div>
-              <div>
-                <h1>Unlimited video calls</h1>
-              </div>
-            </div>
-            <div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
-
-          <div>
-            <div>EXPLORE FEATURES</div>
-            <img src="" alt="" />
-          </div>
-          <div>Features e-line</div>
+    <div className={isPaid ? "PriceCard paidCard" : "PriceCard"}>
+      <div className="subTitle">
+        <div className="subTitle-img">
+          <img src={isPaid ? Boat : Life} alt="" />
+        </div>
+        <div className={isPaid ? "paidSubTitle-text" : "nonPaidSubTitle-text"}>
+          <div>{title}</div>
         </div>
       </div>
-      <div className="price-card2">
+      <div className="priceCard-price">
         <div>
-          <div>
-            <div>STARTER</div>
-            <div>Starter Package Plan</div>
-          </div>
-          <div>
-            <div>
-              <span>$15</span>/mo
-            </div>
-          </div>
-          <div>
-            <div>
-              <div></div>
-              <div></div>
-            </div>
-            <div>
-              <button>1 users</button>
-            </div>
-          </div>
-          <div>
-            <button>
-              <h1>Start 14-day Trail</h1>
-            </button>
-          </div>
-          <div>$15 per user / month</div>
-          <div></div>
-          <div>
-            <div>
-              <div>
-                <h1>1 e-line</h1>
-              </div>
-              <div>
-                <h1>1 e-room</h1>
-              </div>
-              <div>
-                <h1>Add more users to the account</h1>
-              </div>
-            </div>
-            <div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
-
-          <div>
-            <div>EXPLORE FEATURES</div>
-            <img src="" alt="" />
-          </div>
-          <div>Features e-line & e-room</div>
+          <div>${price}</div>
+          <div>/month</div>
         </div>
+        <div>{subTitle}</div>
       </div>
-      <div className="price-card3">
-        <div>
+      <div className="priceCard-subheading">{subheading}</div>
+      <div className="priceCard-features">
+        {features.map((feature) => (
           <div>
-            <div>PREMIUM</div>
-            <div>Premium Package Plan</div>
+            <img src={Check} alt="" />
+            <div>{feature}</div>
           </div>
+        ))}
+        {nonFeatures.map((nonFeature) => (
           <div>
-            <div>
-              <span>$25</span>/mo
-            </div>
+            <img src={Unavailable} alt="" />
+            <div>{nonFeature}</div>
           </div>
-          <div>
-            <div>
-              <div></div>
-              <div></div>
-            </div>
-            <div>
-              <button>1 users</button>
-            </div>
-          </div>
-          <div>
-            <button>
-              <h1>Start 14-day Trail</h1>
-            </button>
-          </div>
-          <div>$25 per user / month</div>
-          <div></div>
-          <div>
-            <div>
-              <div>
-                <h1>1 e-line</h1>
-              </div>
-              <div>
-                <h1>1 e-room</h1>
-              </div>
-              <div>
-                <h1>Add more users to the account</h1>
-              </div>
-            </div>
-            <div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
-
-          <div>
-            <div>EXPLORE FEATURES</div>
-            <img src="" alt="" />
-          </div>
-          <div>Features e-line & e-room</div>
-        </div>
+        ))}
       </div>
-      <div className="price-card4">
-        <div>
-          <div>
-            <div>ENTERPRISE</div>
-            <div>Custom Plan</div>
-          </div>
-          <div>
-            <button>
-              <h1>Contact Us</h1>
-            </button>
-          </div>
-          <div></div>
-          <div>
-            <div>
-              <div>
-                <h1>Unlimted users</h1>
-              </div>
-              <div>
-                <h1>Unlimited Collaborators</h1>
-              </div>
-              <div>
-                <h1>Unlimited Features</h1>
-              </div>
-            </div>
-            <div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
-
-          <div>
-            <div>EXPLORE FEATURES</div>
-            <img src="" alt="" />
-          </div>
-          <div>Features e-line & e-room</div>
-        </div>
+      <div className="priceCard-Button">
+        <button>
+          {isPaid ? "Become A Club Member" : "Join As A Free Member"}
+        </button>
       </div>
     </div>
   );

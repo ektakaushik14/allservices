@@ -1,263 +1,59 @@
-.blackTrue {
+.headerNav {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 10000;
   width: 100%;
-  min-height: 10vh;
+}
+.headerNav > div {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  height: 15vh;
 }
 
-.blackTrue > .navContent a {
-  color: black;
+.navLogo {
+  width: 100px;
+  height: 100px;
 }
-
-.navbar {
-  position: absolute;
-  color: white;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  min-height: 10vh;
+.navLogo img {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .navContent {
-  width: 90%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  height: 10vh;
-  justify-content: space-between;
-}
-.navContent > div {
-  display: flex;
+  flex: 1;
+  margin: 0 1rem;
 }
 .navContent .navLinks {
-  display: flex;
-}
-.navContent .navLinks ul {
-  display: flex;
-}
-.navContent .navLinks ul .active {
-  color: rgb(122, 122, 122);
-}
-.navContent .navLinks ul li {
-  cursor: pointer;
-  margin-right: 2rem;
-  display: flex;
-  align-items: center;
-  transition: color 0.1s linear;
-}
-.navContent .navLinks ul li:hover {
-  color: rgb(122, 122, 122);
-}
-
-.logo {
-  cursor: pointer;
-  margin-right: 3rem;
-  height: 80px;
-  width: 80px;
-  margin-top: 0.8rem;
-}
-
-.logo img {
-  height: 80px;
-  width: 80px;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
-.nav-login-button {
-  cursor: pointer;
-}
-.nav-login-button a {
-  text-decoration: none;
-  cursor: pointer;
-}
-.nav-login-button button {
-  cursor: pointer;
-  border-radius: 15px;
-  outline: none;
-  border: none;
-  background: white;
-  color: black;
-  align-items: center;
-  display: flex;
-  padding: 0.6rem 1rem;
-  text-decoration: none;
-}
-.nav-login-button button img {
-  height: 16px;
-  width: 16px;
-  margin: 0 0.5rem 0 0;
-  -o-object-fit: contain;
-     object-fit: contain;
-  transform: rotate(0deg);
-  -webkit-animation: rotateLogin 5s linear infinite;
-          animation: rotateLogin 5s linear infinite;
-}
-
-.navModal {
-  background: #100f0f;
-  height: auto;
-  border: 1px solid rgb(27, 27, 27);
-  padding: 1rem 0;
-}
-.navModal .navModalContent {
-  width: 90%;
-  margin: auto 0 auto auto;
-  display: flex;
-}
-
-.navModalImage {
-  flex: 0.6;
-  width: 100px;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.navModalLinks {
-  flex: 1.4;
-}
-
-.selectedNavContent {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 2rem;
-}
-.selectedNavContent > div {
-  display: flex;
-  margin-left: 1rem;
-  transition: all 0.3s linear;
-  margin: 0.5rem 0;
-  padding: 0.8rem;
-  transform: translatex(10%);
-  opacity: 0;
-  -webkit-animation: transform 0.4s ease-in-out forwards 0.1s;
-          animation: transform 0.4s ease-in-out forwards 0.1s;
-}
-.selectedNavContent > div:hover {
-  background-color: #181818;
-  border-radius: 10px;
-}
-
-.selectedNavContentImg {
-  width: 2rem;
-  height: 2rem;
-}
-
-.selectedNavContentSubHeading {
-  color: white;
-}
-.selectedNavContentSubHeading > :nth-of-type(2) {
-  width: 90%;
-  font-size: 12px;
-}
-
-.signedInDropDownModal div {
-  cursor: pointer;
-  width: 38px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: green;
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-.signedInDropDownModal div img {
-  width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
-.secondDropDownModalContainer {
-  width: 90%;
-  margin: auto;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+}
+.navContent .navLinks li {
+  cursor: pointer;
+  margin: 0 1rem;
 }
 
-.secondDropDownModal {
-  width: 300px;
-  border-radius: 10px;
-  background-color: rgb(25, 25, 25);
+.navContactUs {
+  background: -webkit-linear-gradient(right, #ef7bb6, #8e57f7);
+  margin-right: 5px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navSignUp {
+  display: flex;
+  padding: 0 2rem;
+  align-items: center;
+}
+.navSignUp button {
+  background-color: #1b1b1b;
   color: white;
-  padding: 1rem 2rem;
-}
-
-.secondDropDownModalHeader {
-  display: flex;
-  align-items: center;
-}
-.secondDropDownModalHeader > div:nth-of-type(1) {
-  cursor: pointer;
-  width: 38px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: green;
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-right: 1rem;
-}
-
-.secondDropDownModalDivider {
-  border-bottom: 1px solid rgb(208, 208, 208);
-  margin: 1rem 0;
-}
-
-.secondDropDownModalContentContainer {
-  display: flex;
-  margin: 0.6rem 0;
-  cursor: pointer;
-  padding: 0.4rem;
-}
-.secondDropDownModalContentContainer:hover {
-  background-color: #5a5a5a;
-  border-radius: 10px;
-}
-
-.secondDropDownModalArrow {
-  margin-left: auto;
-}
-
-.secondDropDownModalIcon {
-  width: 24px;
-  height: 24px;
-  margin-right: 1rem;
-  border-radius: 50%;
-  background-color: grey;
-}
-
-@-webkit-keyframes transform {
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes transform {
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@-webkit-keyframes rotateLogin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes rotateLogin {
-  to {
-    transform: rotate(360deg);
-  }
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  border-radius: 18px;
 }/*# sourceMappingURL=nav.css.map */

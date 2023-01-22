@@ -11,7 +11,7 @@
   display: flex;
   & > div {
     flex: 1;
-    height: 100%;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,9 +63,6 @@
     font-size: 2rem;
     text-transform: capitalize;
   }
-  & > div:nth-of-type(2) {
-    font-size: 14px;
-  }
 }
 
 .login-form {
@@ -76,7 +73,8 @@
       font-size: 12px;
       text-transform: capitalize;
     }
-    & input {
+    & input,
+    select {
       width: 100%;
       border: 1px solid rgba(128, 128, 128, 0.449);
       padding: 8px;

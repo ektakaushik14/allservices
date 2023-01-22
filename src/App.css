@@ -7,3 +7,16 @@
   list-style: none;
   font-family: "Poppins", sans-serif;
 }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+li {
+  cursor: pointer;
+}
+
+.App {
+  position: relative;
+}

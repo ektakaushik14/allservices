@@ -9,183 +9,36 @@ import NavDropdownModal from "./NavDropdownModal";
 import SignInIcon from "../../Images/signInIcon.png";
 import CompanyLogo from "../../Images/CompanyLogo.png";
 
-// name is hardcoded right now!!!!!!
-
-export default function Nav({ isSignedOut, black }) {
-  const [user, loading] = useAuthState(auth);
-  const [activeNav, setActiveNav] = useState("");
-  const [isNavActive, setIsNavActive] = useState(false);
-  const [userImg, setUserImg] = useState("");
-  const [toggleSignedInDropDownModal, setToggleSignedInDropDownModal] =
-    useState(false);
-
+export default function Nav() {
   const navigate = useNavigate();
-
-  const handleToggleSignedInDropDownModal = () => {
-    setIsNavActive(false);
-    setToggleSignedInDropDownModal(!toggleSignedInDropDownModal);
-  };
-
-  const handleRedirection = (dest) => {
-    navigate(`/profile?active=${dest}`);
-  };
-
-  const SignedInDropDownModal = ({ img, userName }) => {
-    return (
-      <div className="signedInDropDownModal">
-        <div onClick={handleToggleSignedInDropDownModal}>
-          {img ? <img src={img} alt="" /> : <div>{userName.charAt(0)}</div>}
-        </div>
-      </div>
-    );
-  };
-
-  const SecondDropDownModal = ({ img, userName }) => {
-    return (
-      <div className="secondDropDownModal">
-        <div className="secondDropDownModalHeader">
-          <div>
-            {img ? <img src={img} alt="" /> : <div>{userName.charAt(0)}</div>}
-          </div>
-          <div>{userName}</div>
-        </div>
-        <div className="secondDropDownModalDivider"></div>
-        <div
-          onClick={() => handleRedirection("edit")}
-          className="secondDropDownModalContentContainer"
-        >
-          <div className="secondDropDownModalIcon"></div>
-          <div className="secondDropDownModalTitle">Edit Profile</div>
-          <div className="secondDropDownModalArrow">{">"}</div>
-        </div>
-        <div
-          onClick={() => handleRedirection("settings")}
-          className="secondDropDownModalContentContainer"
-        >
-          <div className="secondDropDownModalIcon"></div>
-          <div className="secondDropDownModalTitle">Settings & Privacy</div>
-          <div className="secondDropDownModalArrow">{">"}</div>
-        </div>
-        <div
-          onClick={() => handleRedirection("help")}
-          className="secondDropDownModalContentContainer"
-        >
-          <div className="secondDropDownModalIcon"></div>
-          <div className="secondDropDownModalTitle">Help & Support</div>
-          <div className="secondDropDownModalArrow">{">"}</div>
-        </div>
-        <div
-          onClick={handleSignOut}
-          className="secondDropDownModalContentContainer"
-        >
-          <div className="secondDropDownModalIcon"></div>
-          <div className="secondDropDownModalTitle">Logout</div>
-          <div className="secondDropDownModalArrow">{">"}</div>
-        </div>
-      </div>
-    );
-  };
-
-  useEffect(() => {
-    setUserImg(user?.photoURL);
-  }, [user]);
-
-  const handleActiveNav = (nav) => {
-    setToggleSignedInDropDownModal(false);
-    if (nav === activeNav) {
-      setActiveNav("");
-      setIsNavActive(false);
-    } else {
-      setIsNavActive(true);
-      setActiveNav(nav);
-    }
-  };
-  const clicked = () => {
-    setActiveNav("");
-    setIsNavActive(false);
-    setToggleSignedInDropDownModal(false);
-  };
-  useEffect(() => {
-    document.addEventListener("mouseup", function (e) {
-      var container = document.querySelector(".navbar");
-      var dropDownUserProfile = document.querySelector(".secondDropDownModal");
-      if (
-        !container.contains(e.target) ||
-        !dropDownUserProfile.contains(e.target)
-      ) {
-        clicked();
-      }
-    });
-  }, []);
-
-  const handleSignOut = () => {
-    setToggleSignedInDropDownModal(false);
-    signOut(auth)
-      .then(() => {
-        isSignedOut(true);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const handleSignUp = () => {
+    navigate("/login");
   };
 
   return (
-    <div className={black ? "blackTrue" : "navbar"}>
-      <div className="navContent">
-        <div>
-          <div className="logo">
-            <Link to="/">
-              <img src={CompanyLogo} />
-            </Link>
-          </div>
-          <div className="navLinks">
-            <ul>
-              <li
-                className={activeNav === "Features" ? "active" : ""}
-                onClick={() => handleActiveNav("Features")}
-              >
-                Features <KeyboardArrowDownIcon />
-              </li>
-              <li
-                className={activeNav === "Company" ? "active" : ""}
-                onClick={() => handleActiveNav("Company")}
-              >
-                Company <KeyboardArrowDownIcon />
-              </li>
-              <li>
-                <Link to="/support">Support</Link>
-              </li>
-              <li>
-                <Link to="/pricing">Pricing</Link>
-              </li>
-              <li>
-                <Link to="/act-as-a">Explore</Link>
-              </li>
-            </ul>
-          </div>
+    <div className="headerNav">
+      <div>
+        <div className="navLogo">
+          <Link to="/">
+            <img className="logo" src={CompanyLogo} alt="" />
+          </Link>
         </div>
-        {!user ? (
-          <div className="nav-login-button">
-            <Link to="/login">
-              <button>
-                <img src={SignInIcon} alt="" />
-                Login
-              </button>
-            </Link>
-          </div>
-        ) : (
-          <SignedInDropDownModal img={userImg} userName="Shanu" />
-        )}
-      </div>
-      {toggleSignedInDropDownModal ? (
-        <div className="secondDropDownModalContainer">
-          <SecondDropDownModal img={userImg} userName="Shanu" />
+        <nav className="navContent">
+          <ul className="navLinks">
+            <li>Overview</li>
+            <li>Features</li>
+            <li>
+              <Link to="pricing">Pricing</Link>
+            </li>
+            <li>
+              <span className="navContactUs">Contact Us</span>
+              <span>👋</span>
+            </li>
+          </ul>
+        </nav>
+        <div className="navSignUp">
+          <button onClick={handleSignUp}>Sign Up</button>
         </div>
-      ) : null}
-      <div className="navDropdownModal">
-        {isNavActive ? (
-          <NavDropdownModal clicked={() => clicked()} data={activeNav} />
-        ) : null}
       </div>
     </div>
   );

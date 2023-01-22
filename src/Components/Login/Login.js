@@ -22,13 +22,14 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [countries, setCountries] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState({});
 
   const handleLogin = () => {
     setLoading(true);
     if (loginSignUp === 1) {
       signInWithEmailAndPassword(auth, username, password)
         .then((creds) => {
-          console.log(creds);
           setLoading(false);
           setError("");
           navigate("/");
@@ -60,6 +61,7 @@ export default function Login() {
               email: username,
               name: name,
               dateJoined: dateJoined,
+              country: selectedCountry,
             });
             navigate("/");
           } catch (e) {
@@ -72,6 +74,25 @@ export default function Login() {
           setLoading(false);
         });
     }
+  };
+
+  useEffect(() => {
+    const getCountry = async () => {
+      const data = await fetch(
+        "https://restcountries.com/v3/all?fields=name,currencies,flag"
+      ).then(async (response) => {
+        const resp = await response.json();
+
+        setCountries(
+          resp.sort((a, b) => a.name.common.localeCompare(b.name.common))
+        );
+      });
+    };
+    getCountry();
+  }, []);
+
+  const handleSelectCountry = (e) => {
+    setSelectedCountry(e);
   };
 
   const provider = new GoogleAuthProvider();
@@ -122,15 +143,13 @@ export default function Login() {
         </div>
         <div className="login-right-side">
           <div className="login-right-side-content">
-            <div id="login-logo">logo</div>
             <div className="login-right-side-heading">
               <div>hey</div>
-              <div>Lorem ipsum dolor sit amet.</div>
             </div>
             <div className="login-form">
               {loginSignUp != 1 && (
                 <div>
-                  <h4>Name</h4>
+                  <h4>Name*</h4>
                   <input
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -138,8 +157,26 @@ export default function Login() {
                   />
                 </div>
               )}
+              {loginSignUp != 1 && (
+                <div>
+                  <h4>Select Country*</h4>
+                  <select
+                    onChange={(e) => handleSelectCountry(e.target.value)}
+                    name="country"
+                    id="country"
+                    value={selectedCountry}
+                  >
+                    {countries.sort().map((country) => (
+                      <option value={JSON.stringify(country)}>
+                        {country.flag} {country.name.common}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
               <div>
-                <h4>email</h4>
+                <h4>email*</h4>
                 <input
                   value={username}
                   onChange={(e) => setUserName(e.target.value)}
@@ -147,7 +184,7 @@ export default function Login() {
                 />
               </div>
               <div>
-                <h4>password</h4>
+                <h4>password*</h4>
                 <input
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
