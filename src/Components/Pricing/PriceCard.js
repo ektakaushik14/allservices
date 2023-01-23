@@ -27,6 +27,11 @@ export default function PriceCard({
         <div>
           <div>${price}</div>
           <div>/month</div>
+          {isPaid && (
+            <div className="priceSaveContainer">
+              Save <span>30%</span>
+            </div>
+          )}
         </div>
         <div>{subTitle}</div>
       </div>

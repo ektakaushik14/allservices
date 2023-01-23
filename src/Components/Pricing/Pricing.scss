@@ -68,6 +68,15 @@
   }
 }
 
+.priceSaveContainer {
+  margin-left: auto;
+  & > span {
+    background: -webkit-linear-gradient(left, #937ef7, #064ef5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 .pricingSupportHeading {
   background: -webkit-linear-gradient(left, #937ef7, #064ef5);
   -webkit-background-clip: text;

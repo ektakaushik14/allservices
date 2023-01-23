@@ -6,15 +6,10 @@ import "./support.css";
 export default function Support() {
   return (
     <div className="support">
-      <Nav black={true} />
-      <Link to="/">
-        <CancelButton />
-      </Link>
       <div className="supportHeading">
         <div>Start the conversation</div>
         <div>For inquiries fill out the form below</div>
         <div>For general inquiries: shanumishra@gmail.com </div>
-        <div>Call us anytime at: +9999999999 </div>
       </div>
       <div className="supportSubHeading">
         <form>

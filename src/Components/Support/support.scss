@@ -4,9 +4,9 @@
   .supportHeading {
     height: 50vh;
     width: 90%;
-    margin: auto;
+    margin: 0 auto 2rem auto;
+    padding-top: 7rem;
     & > div:nth-of-type(1) {
-      margin-top: 4rem;
       font-size: 4rem;
       text-transform: capitalize;
       width: 50%;
@@ -31,7 +31,7 @@
         ::placeholder {
           /* Chrome, Firefox, Opera, Safari 10.1+ */
           color: grey;
-          font-size: .8rem;
+          font-size: 0.8rem;
           opacity: 1; /* Firefox */
         }
 
@@ -50,7 +50,7 @@
         & > div {
           margin: 0 0 3rem 0;
           h4 {
-            font-size: .8rem;
+            font-size: 0.8rem;
             text-transform: capitalize;
             color: black;
             font-weight: 300;

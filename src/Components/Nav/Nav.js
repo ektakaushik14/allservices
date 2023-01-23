@@ -31,8 +31,10 @@ export default function Nav() {
               <Link to="pricing">Pricing</Link>
             </li>
             <li>
-              <span className="navContactUs">Contact Us</span>
-              <span>👋</span>
+              <Link to="support">
+                <span className="navContactUs">Contact Us</span>
+                <span>👋</span>
+              </Link>
             </li>
           </ul>
         </nav>
