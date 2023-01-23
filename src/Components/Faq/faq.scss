@@ -1,0 +1,31 @@
+.faq_container {
+  margin: 2rem 0;
+}
+
+.faq {
+  margin: 2rem 0;
+}
+
+.faq_heading {
+  color: #201b3d;
+  font-size: 32px;
+}
+
+.accordian-item {
+  margin: 1rem 0;
+  border-bottom: 1px solid #f3f5fb;
+}
+
+.accordian-question {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  color: #393b6a;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
+.chakra-accordion__icon {
+  margin-left: auto;
+}

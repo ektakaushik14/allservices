@@ -85,6 +85,15 @@
   }
 }
 
+.selectCountry > div {
+  border: 1px solid rgba(128, 128, 128, 0.449);
+  border-radius: 4px;
+  padding: 0 0.2rem;
+  & > select {
+    border: none;
+  }
+}
+
 .forgot-password {
   display: flex;
   text-transform: capitalize;

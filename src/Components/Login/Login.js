@@ -124,42 +124,43 @@ export default function Login() {
     setError("");
   }, [loginSignUp, name, username, password]);
 
-  if (user) {
-    return <Navigate to="/" />;
-  } else if (loadingg) return <div className="loading_page">Loading...</div>;
-  else
-    return (
-      <div className="login-page">
-        <div className="login-left-side">
-          <div className="backgroundLines"></div>
-          <div className="login-left-side-content">
-            <div>Lorem ipsum dolor sit amet.</div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis
-              nemo veniam deserunt velit quia adipisci? Ex accusantium facere
-              suscipit illum?
-            </p>
-          </div>
+  // if (user) {
+  //   return <Navigate to="/" />;
+  // } else if (loadingg) return <div className="loading_page">Loading...</div>;
+  // else
+  return (
+    <div className="login-page">
+      <div className="login-left-side">
+        <div className="backgroundLines"></div>
+        <div className="login-left-side-content">
+          <div>Lorem ipsum dolor sit amet.</div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis
+            nemo veniam deserunt velit quia adipisci? Ex accusantium facere
+            suscipit illum?
+          </p>
         </div>
-        <div className="login-right-side">
-          <div className="login-right-side-content">
-            <div className="login-right-side-heading">
-              <div>hey</div>
-            </div>
-            <div className="login-form">
-              {loginSignUp != 1 && (
+      </div>
+      <div className="login-right-side">
+        <div className="login-right-side-content">
+          <div className="login-right-side-heading">
+            <div>hey</div>
+          </div>
+          <div className="login-form">
+            {loginSignUp != 1 && (
+              <div>
+                <h4>Name*</h4>
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  type="text"
+                />
+              </div>
+            )}
+            {loginSignUp != 1 && (
+              <div className="selectCountry">
+                <h4>Select Country*</h4>
                 <div>
-                  <h4>Name*</h4>
-                  <input
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    type="text"
-                  />
-                </div>
-              )}
-              {loginSignUp != 1 && (
-                <div>
-                  <h4>Select Country*</h4>
                   <select
                     onChange={(e) => handleSelectCountry(e.target.value)}
                     name="country"
@@ -173,87 +174,88 @@ export default function Login() {
                     ))}
                   </select>
                 </div>
-              )}
+              </div>
+            )}
 
-              <div>
-                <h4>email*</h4>
-                <input
-                  value={username}
-                  onChange={(e) => setUserName(e.target.value)}
-                  type="email"
-                />
-              </div>
-              <div>
-                <h4>password*</h4>
-                <input
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  type="password"
-                />
-              </div>
+            <div>
+              <h4>email*</h4>
+              <input
+                value={username}
+                onChange={(e) => setUserName(e.target.value)}
+                type="email"
+              />
             </div>
-            {error.length > 0 && (
-              <div className="error-message">
-                {error.includes("email-already-in-use")
-                  ? "Email is already in use please Login"
-                  : error}
-              </div>
-            )}
-            <div className="forgot-password">
-              <div>
-                <input type="checkbox" /> remember me
-              </div>
-              <div>Forgot Password?</div>
+            <div>
+              <h4>password*</h4>
+              <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+              />
             </div>
-            <div onClick={handleLogin} className="login-button">
-              <button>
-                {loading ? (
-                  <img src={Loader} />
-                ) : loginSignUp === 1 ? (
-                  "Login"
-                ) : (
-                  "Sign Up"
-                )}{" "}
-              </button>
+          </div>
+          {error.length > 0 && (
+            <div className="error-message">
+              {error.includes("email-already-in-use")
+                ? "Email is already in use please Login"
+                : error}
             </div>
-            {loginSignUp === 1 ? (
-              <div>
-                Don't have an account?{" "}
-                <span
-                  style={{ color: "blue", cursor: "pointer" }}
-                  onClick={() => setLoginSignUp(2)}
-                >
-                  Sign Up
-                </span>
-              </div>
-            ) : (
-              <div>
-                Already have an account?{" "}
-                <span
-                  style={{ color: "blue", cursor: "pointer" }}
-                  onClick={() => setLoginSignUp(1)}
-                >
-                  Login
-                </span>
-              </div>
-            )}
-            <div className="login-divider">
-              <div></div>
-              <div>or</div>
-              <div></div>
+          )}
+          <div className="forgot-password">
+            <div>
+              <input type="checkbox" /> remember me
             </div>
-            <div className="googleLogin">
-              <button onClick={signInWithGoogle}>
-                {" "}
-                <img
-                  src="https://img.icons8.com/fluency/512/google-logo.png"
-                  alt=""
-                />{" "}
-                Sign in with google
-              </button>
+            <div>Forgot Password?</div>
+          </div>
+          <div onClick={handleLogin} className="login-button">
+            <button>
+              {loading ? (
+                <img src={Loader} />
+              ) : loginSignUp === 1 ? (
+                "Login"
+              ) : (
+                "Sign Up"
+              )}{" "}
+            </button>
+          </div>
+          {loginSignUp === 1 ? (
+            <div>
+              Don't have an account?{" "}
+              <span
+                style={{ color: "blue", cursor: "pointer" }}
+                onClick={() => setLoginSignUp(2)}
+              >
+                Sign Up
+              </span>
             </div>
+          ) : (
+            <div>
+              Already have an account?{" "}
+              <span
+                style={{ color: "blue", cursor: "pointer" }}
+                onClick={() => setLoginSignUp(1)}
+              >
+                Login
+              </span>
+            </div>
+          )}
+          <div className="login-divider">
+            <div></div>
+            <div>or</div>
+            <div></div>
+          </div>
+          <div className="googleLogin">
+            <button onClick={signInWithGoogle}>
+              {" "}
+              <img
+                src="https://img.icons8.com/fluency/512/google-logo.png"
+                alt=""
+              />{" "}
+              Sign in with google
+            </button>
           </div>
         </div>
       </div>
-    );
+    </div>
+  );
 }

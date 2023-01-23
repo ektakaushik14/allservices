@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PriceCard from "./PriceCard";
 import pricingConst from "./pricingConstants";
 import "./Pricing.css";
+import Faq from "../Faq/Faq";
 export default function Pricing() {
   return (
     <div className="pricing">
@@ -24,9 +25,14 @@ export default function Pricing() {
         ))}
       </div>
       <div className="pricingSupport">
-        <div className="pricingSupportHeading">SUPPORT</div>
-        <div>Frequently Asked Questions</div>
-        <div>Everything you need to know about the product and billing.</div>
+        <div>
+          <div className="pricingSupportHeading">SUPPORT</div>
+          <div>Frequently Asked Questions</div>
+          <div>Everything you need to know about the product and billing.</div>
+        </div>
+        <div>
+          <Faq />
+        </div>
       </div>
     </div>
   );
