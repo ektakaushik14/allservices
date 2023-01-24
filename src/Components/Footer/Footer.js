@@ -1,42 +1,30 @@
 import React from "react";
 import "./Footer.css";
-import Footersearch from "../../Images/Footersearch.png";
-import Facebook from "../../Images/facebook.png";
-import Instagram from "../../Images/instagram.png";
-import Linkedin from "../../Images/linkedin.png";
 import FooterContent from "./FooterContent";
-import CompanyLogo from "../../Images/CompanyLogo.png";
 export default function Footer() {
   return (
     <div className="footer">
       <div>
         <div>
           <div>
-            <img src={CompanyLogo} />
-          </div>
-          <div>
-            <div>
-              <img src={Facebook} />
-            </div>
-            <div>
-              <img src={Instagram} />
-            </div>
-            <div>
-              <img src={Linkedin} />
-            </div>
+            <img src={`https://avatars.dicebear.com/api/male/.svg`} />
           </div>
         </div>
-        <div></div>
         <div>
-          <div>
-            <img src={Footersearch} />
-          </div>
-          <div>
-            <FooterContent />
-          </div>
+          <h1>Don't get left behind</h1>
         </div>
-        <div></div>
-        <div> &copy; Copyright. All rights reserved</div>
+        <div>
+          <p>
+            We're on a mission to help you grow. Get the tools for viral content
+            by joining our tribe today!
+          </p>
+        </div>
+        <div>
+          <button>Try it for free</button>
+        </div>
+      </div>
+      <div>
+        <FooterContent />
       </div>
     </div>
   );

@@ -11,6 +11,8 @@ import Privacy from "./Components/Privacy/Privacy";
 import TermsAndConditions from "./Components/Terms&Conditions/TermsAndConditions";
 import ActAs from "./Components/ActAsA/ActAs";
 import PageNotFound from "./Components/404Page/404Page";
+import Footer from "./Components/Footer/Footer";
+import JoinCommunity from "./Components/JoinCommunity/JoinCommunity";
 
 function App() {
   return (
@@ -28,11 +30,8 @@ function App() {
         <Route path="/actAsA" element={<ActAs />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-      {/* <Landing /> */}
-      {/* <AsAdvertisment />
-      <Services />
-      <Content />
-      <Footer /> */}
+      <JoinCommunity />
+      <Footer />
     </div>
   );
 }

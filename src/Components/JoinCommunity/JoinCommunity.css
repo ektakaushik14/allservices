@@ -1,0 +1,85 @@
+.JoinCommunity {
+  height: 60vh;
+  width: 100%;
+  background-color: #f7f8fd;
+}
+.JoinCommunity > :nth-of-type(1) {
+  height: 65vh;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.JoinCommunity > :nth-of-type(1) > :nth-of-type(1) {
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 1.3rem;
+  background: -webkit-linear-gradient(left, #7049f6, #6bdffa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.JoinCommunity > :nth-of-type(1) > :nth-of-type(2) {
+  height: 8vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+.JoinCommunity > :nth-of-type(1) > :nth-of-type(3) {
+  height: 7vh;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #707194;
+  font-size: 0.85rem;
+}
+.JoinCommunity > :nth-of-type(1) > :nth-of-type(4) {
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.JoinCommunity > :nth-of-type(1) > :nth-of-type(4) input {
+  height: 8vh;
+  position: relative;
+  width: 35%;
+  outline: none;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 30px;
+}
+.JoinCommunity > :nth-of-type(1) > :nth-of-type(4) button {
+  position: absolute;
+  left: 55%;
+  padding: 0.4rem 2rem;
+  border: none;
+  color: white;
+  border-radius: 30px;
+  background-color: blue;
+}
+.JoinCommunity > :nth-of-type(1) > :nth-of-type(4) button:hover {
+  background-color: rgb(56, 125, 222);
+}
+.JoinCommunity > :nth-of-type(1) > :nth-of-type(5) {
+  height: 10vh;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 0.85rem;
+  color: #cdbece;
+}
+.JoinCommunity > :nth-of-type(1) > :nth-of-type(5) span {
+  background: -webkit-linear-gradient(left, #7049f6, #6bdffa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}/*# sourceMappingURL=JoinCommunity.css.map */
