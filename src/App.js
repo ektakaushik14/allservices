@@ -13,6 +13,7 @@ import ActAs from "./Components/ActAsA/ActAs";
 import PageNotFound from "./Components/404Page/404Page";
 import Footer from "./Components/Footer/Footer";
 import JoinCommunity from "./Components/JoinCommunity/JoinCommunity";
+import Features from "./Components/Features/Features";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/actAsA" element={<ActAs />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <Features />
       <JoinCommunity />
       <Footer />
     </div>

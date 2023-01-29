@@ -47,15 +47,19 @@
 
 .landing-page-CTA {
   margin-top: 3rem;
-  background-color: #215be9;
-  border-radius: 18px;
+  background-color: #df6866;
+  border-radius: 12px;
   width: fit-content;
 }
 .landing-page-CTA button {
-  padding: 10px 14px;
+  padding: 12px 30px;
   color: white;
   font-weight: 600;
   border: none;
   outline: none;
-  background-color: transparent;
+  -webkit-box-shadow: 8px 8px 3px 3px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 8px 8px 3px 3px rgba(0, 0, 0, 1);
+  box-shadow: 8px 8px 3px 3px rgba(0, 0, 0, 1);
+  background-color: #df6866;
+  border-radius: 12px;
 }

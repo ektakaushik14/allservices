@@ -17,7 +17,7 @@ export default function Landing() {
       <div className="landing-page-img">
         <img src={Group} alt="" />
       </div>
-      
+
       <div className="landing-page-content">
         <div className="landing-page-tagline">Lorem ipsum dolor sit amet</div>
         <div className="landing-page-heading">Lorem ipsum dolor sit</div>
@@ -27,6 +27,7 @@ export default function Landing() {
         </div>
         <div className="landing-page-CTA">
           <button>Get Started Now</button>
+          
         </div>
       </div>
     </div>
