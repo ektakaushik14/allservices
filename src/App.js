@@ -14,6 +14,7 @@ import PageNotFound from "./Components/404Page/404Page";
 import Footer from "./Components/Footer/Footer";
 import JoinCommunity from "./Components/JoinCommunity/JoinCommunity";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import Features from "./Components/Features/Features";
 
 function App() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      {location.pathname != "/dashboard" && <Features />}
       {location.pathname != "/dashboard" && <JoinCommunity />}
       {location.pathname != "/dashboard" && <Footer />}
     </div>
