@@ -1,0 +1,111 @@
+.dashboardSideNav {
+  width: 20%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.dashboardSideNavHeader {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+}
+.dashboardSideNavHeader > div:nth-of-type(1) {
+  margin-right: 1rem;
+  width: 35px;
+  height: 35px;
+  border-radius: 25%;
+  background-color: rgb(59, 59, 59);
+}
+.dashboardSideNavHeader > div:nth-of-type(2) > div:nth-of-type(2) {
+  font-size: 14px;
+  color: gray;
+}
+
+.horizontalLine {
+  width: 100%;
+  border-bottom: 1px solid rgba(231, 231, 231, 0.517);
+}
+
+.dashboardSideNavbar {
+  margin: 1rem 0;
+  flex: 1;
+}
+.dashboardSideNavbar > ul li {
+  padding: 16px;
+  background: rgba(241, 241, 241, 0.3);
+  font-weight: 400;
+  margin: 1rem 0.4rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+.dashboardSideNavbar > ul li > img {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.dashboardSideNavbar > ul li:hover {
+  background: rgba(241, 241, 241, 0.6);
+}
+.dashboardSideNavbar > ul .activeNav {
+  color: #f17f50;
+}
+
+.dashboardSideNavCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #fcede5;
+  border-radius: 12px;
+  height: 250px;
+  padding: 0 1rem;
+  margin: 0 1rem 3rem 1rem;
+}
+.dashboardSideNavCard > div:nth-of-type(1) {
+  margin: 0.3rem 0 0 0;
+  color: #554c56;
+  font-weight: 500;
+}
+.dashboardSideNavCard > div:nth-of-type(2) {
+  margin: 0 0 0.3rem 0;
+  color: #554c56;
+}
+
+.dashboardSideNavCardImgContainer {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.dashboardSideNavCardImgContainer > img {
+  width: 80px;
+  height: 80px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.dashboardPlanType {
+  padding: 16px;
+}
+
+.dashboardWordCountContainer {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #2a325e;
+  font-weight: 500;
+}
+.dashboardWordCountContainer:hover {
+  color: #173bd4;
+}
+.dashboardWordCountContainer > img {
+  margin-right: 4px;
+  width: 20px;
+  height: 20px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}/*# sourceMappingURL=dashboardnav.css.map */

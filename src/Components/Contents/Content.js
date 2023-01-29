@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./content.css";
-import contentServices from "./contentConstants";
+import {contentServices} from "../../utils/contentConstants";
 
 const ContentServices = (reverse) => {
   return (

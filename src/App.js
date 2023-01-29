@@ -1,6 +1,6 @@
 import Landing from "./Components/Landing/Landing";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Nav from "./Components/Nav/Nav";
 import Login from "./Components/Login/Login";
 import Support from "./Components/Support/Support";
@@ -13,12 +13,13 @@ import ActAs from "./Components/ActAsA/ActAs";
 import PageNotFound from "./Components/404Page/404Page";
 import Footer from "./Components/Footer/Footer";
 import JoinCommunity from "./Components/JoinCommunity/JoinCommunity";
-import Features from "./Components/Features/Features";
+import Dashboard from "./Components/Dashboard/Dashboard";
 
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
-      <Nav />
+      {location.pathname != "/dashboard" && <Nav />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
@@ -29,11 +30,11 @@ function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/tAndC" element={<TermsAndConditions />} />
         <Route path="/actAsA" element={<ActAs />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-      <Features />
-      <JoinCommunity />
-      <Footer />
+      {location.pathname != "/dashboard" && <JoinCommunity />}
+      {location.pathname != "/dashboard" && <Footer />}
     </div>
   );
 }
