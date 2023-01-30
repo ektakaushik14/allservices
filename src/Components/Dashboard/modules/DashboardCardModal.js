@@ -1,8 +1,17 @@
 import { Modal, Box, Typography, Fade, Backdrop } from "@mui/material";
 import React from "react";
 import "./dashboardModulesStyles/dashboardModal.css";
-export default function DashboardCardModal({ isOpen, onClose, selectedCard }) {
+export default function DashboardCardModal({
+  isOpen,
+  onClose,
+  selectedCard,
+  modalSubmit,
+}) {
   const handleClose = () => onClose(false);
+  const handleModalSubmit = () => {
+    onClose(false);
+    modalSubmit("hello");
+  };
 
   const style = {
     position: "absolute",
@@ -40,7 +49,7 @@ export default function DashboardCardModal({ isOpen, onClose, selectedCard }) {
                 <input type="text" placeholder="Type something..." />
               </div>
               <div>
-                <button>Submit</button>
+                <button onClick={handleModalSubmit}>Submit</button>
                 <button>Cancel</button>
               </div>
             </div>

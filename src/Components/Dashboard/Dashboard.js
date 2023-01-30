@@ -10,7 +10,7 @@ import DashboardCardModal from "./modules/DashboardCardModal";
 
 export default function Dashboard() {
   const [search, setSearch] = useState("");
-  const [activeNav, setActiveNav] = useState(1);
+  const [activeNav, setActiveNav] = useState(0);
   const [isModalActive, setIsModalActive] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const handleActiveNav = (nav) => {
@@ -20,6 +20,7 @@ export default function Dashboard() {
     setIsModalActive(isActive);
   };
   const selectedDashboardCard = (selectedCard) => setSelectedCard(selectedCard);
+  const handleModalSubmit = (value) => console.log(value);
 
   return (
     <div className="dashboard">
@@ -60,6 +61,7 @@ export default function Dashboard() {
         )}
         {isModalActive && (
           <DashboardCardModal
+            modalSubmit={handleModalSubmit}
             isOpen={isModalActive}
             onClose={dashboardClickHandle}
             selectedCard={selectedCard}
