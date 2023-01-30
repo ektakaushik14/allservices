@@ -1,5 +1,5 @@
 import { Modal, Box, Typography, Fade, Backdrop } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import "./dashboardModulesStyles/dashboardModal.css";
 export default function DashboardCardModal({
   isOpen,
@@ -7,10 +7,12 @@ export default function DashboardCardModal({
   selectedCard,
   modalSubmit,
 }) {
+  const [modalInput, setModalInput] = useState("");
+
   const handleClose = () => onClose(false);
   const handleModalSubmit = () => {
     onClose(false);
-    modalSubmit("hello");
+    modalSubmit(modalInput);
   };
 
   const style = {
@@ -19,10 +21,11 @@ export default function DashboardCardModal({
     left: "50%",
     transform: "translate(-50%, -50%)",
     height: 250,
-    width: 500,
+    width: 400,
     bgcolor: "white",
     borderRadius: "12px",
     boxShadow: 30,
+    outline: "none",
   };
 
   return (
@@ -46,11 +49,21 @@ export default function DashboardCardModal({
               <div>
                 <div>Project Title</div>
                 <div>Make It Memorable</div>
-                <input type="text" placeholder="Type something..." />
+                <input
+                  autoFocus
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleModalSubmit(modalInput);
+                    }
+                  }}
+                  onChange={(e) => setModalInput(e.target.value)}
+                  type="text"
+                  placeholder="Type something..."
+                />
               </div>
               <div>
                 <button onClick={handleModalSubmit}>Submit</button>
-                <button>Cancel</button>
+                <button onClick={handleClose}>Cancel</button>
               </div>
             </div>
           </Box>
