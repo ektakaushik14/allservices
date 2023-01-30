@@ -9,10 +9,11 @@ export default function DashboardCardModal({ isOpen, onClose, selectedCard }) {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    height: 400,
+    width: 500,
     bgcolor: "white",
     borderRadius: "12px",
-    boxShadow: 24,
+    boxShadow: 30,
   };
 
   return (
@@ -38,7 +39,10 @@ export default function DashboardCardModal({ isOpen, onClose, selectedCard }) {
                 <div>Make It Memorable</div>
                 <input type="text" placeholder="" />
               </div>
-              <div></div>
+              <div>
+                <button>Submit</button>
+                <button>Cancel</button>
+              </div>
             </div>
           </Box>
         </Fade>

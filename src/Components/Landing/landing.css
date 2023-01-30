@@ -57,9 +57,9 @@
   font-weight: 600;
   border: none;
   outline: none;
-  -webkit-box-shadow: 8px 8px 3px 3px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 8px 8px 3px 3px rgba(0, 0, 0, 1);
-  box-shadow: 8px 8px 3px 3px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 3px 3px 2px 1px rgb(0 0 0);
+  -moz-box-shadow: 3px 3px 2px 1px rgb(0 0 0);
+  box-shadow: 3px 3px 2px 1px rgb(0 0 0);
   background-color: #df6866;
   border-radius: 12px;
 }

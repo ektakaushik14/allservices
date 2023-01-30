@@ -1,6 +1,36 @@
-.card-modal {
-}
-
 .modalContainer {
-  padding: 1rem;
+  height: 100%;
+  width: 90%;
+  margin: auto;
+  flex-direction: column;
+  & > :nth-child(1) {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    color: rgb(30, 108, 163);
+  }
+  & > :nth-child(2) {
+    height: 8rem;
+    & > :nth-child(1) {
+      height: 1.5rem;
+      font-weight: 500;
+      
+    }
+    & > :nth-child(2) {
+      height: 2rem;
+      font-size: .8rem;
+      color: grey;
+    }
+    & > :nth-child(3) {
+      height: 2rem;
+      width: 100%;
+      border-radius: 6px;
+      border: 2px solid rgb(51, 107, 153);
+    }
+  }
+  & > :nth-child(3) {
+    border: 1px solid red;
+    height: 5rem;
+  }
 }
