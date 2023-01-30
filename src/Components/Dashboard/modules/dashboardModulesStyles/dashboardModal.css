@@ -5,14 +5,14 @@
   flex-direction: column;
 }
 .modalContainer > :nth-child(1) {
-  height: 5rem;
+  height: 4rem;
   display: flex;
   align-items: center;
   font-size: 1.3rem;
   color: rgb(30, 108, 163);
 }
 .modalContainer > :nth-child(2) {
-  height: 8rem;
+  height: 7.5rem;
 }
 .modalContainer > :nth-child(2) > :nth-child(1) {
   height: 1.5rem;
@@ -27,9 +27,25 @@
   height: 2rem;
   width: 100%;
   border-radius: 6px;
+  outline: none;
+  padding-left: 0.5rem;
+  font-size: 0.7rem;
   border: 2px solid rgb(51, 107, 153);
 }
 .modalContainer > :nth-child(3) {
-  border: 1px solid red;
-  height: 5rem;
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.modalContainer > :nth-child(3) button {
+  padding: 0rem 1.5rem;
+  border: 2px solid rgb(51, 107, 153);
+  color: rgb(51, 107, 153);
+  background-color: transparent;
+  border-radius: 5px;
+  font-size: 0.75rem;
+}
+.modalContainer > :nth-child(3) button:hover {
+  background-color: rgb(241, 241, 241);
 }/*# sourceMappingURL=dashboardModal.css.map */

@@ -9,7 +9,7 @@ export default function DashboardCardModal({ isOpen, onClose, selectedCard }) {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    height: 400,
+    height: 250,
     width: 500,
     bgcolor: "white",
     borderRadius: "12px",
@@ -37,7 +37,7 @@ export default function DashboardCardModal({ isOpen, onClose, selectedCard }) {
               <div>
                 <div>Project Title</div>
                 <div>Make It Memorable</div>
-                <input type="text" placeholder="" />
+                <input type="text" placeholder="Type something..." />
               </div>
               <div>
                 <button>Submit</button>
