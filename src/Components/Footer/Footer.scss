@@ -63,10 +63,10 @@
         -webkit-box-shadow: 3px 3px 2px 1px rgb(0 0 0);
         -moz-box-shadow: 3px 3px 2px 1px rgb(0 0 0);
         box-shadow: 3px 3px 2px 1px rgb(0 0 0);
-        background-color: #df6866;
+        background: -webkit-linear-gradient(left, #7049f6, #6bdffa);
         border-radius: 12px;
         &:hover {
-          background-color: #8f5553;
+          background: -webkit-linear-gradient(left, #4b1bec, #48cae8);
         }
       }
     }

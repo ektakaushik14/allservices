@@ -5,11 +5,11 @@
   left: 0;
   z-index: 10000;
   width: 100%;
-
   & > div {
     width: 90%;
     margin: auto;
     display: flex;
+    align-items: center;
     height: 15vh;
   }
 }
@@ -17,9 +17,12 @@
 .navLogo {
   width: 100px;
   height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   & img {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     object-fit: contain;
   }
 }
@@ -45,14 +48,14 @@
 
 .navSignUp {
   display: flex;
-  padding: 0 2rem;
+  padding: 0 1rem;
   align-items: center;
   button {
     background-color: $chat-page-background-secondary;
     color: white;
     border: none;
     outline: none;
-    padding: 10px 16px;
+    padding: 10px 25px;
     border-radius: 18px;
   }
 }
