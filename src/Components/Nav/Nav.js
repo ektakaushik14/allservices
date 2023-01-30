@@ -26,7 +26,9 @@ export default function Nav() {
         <nav className="navContent">
           <ul className="navLinks">
             <li>Overview</li>
-            <li>Features</li>
+            <li>
+              <Link to="features">Features</Link>
+            </li>
             <li>
               <Link to="pricing">Pricing</Link>
             </li>

@@ -15,11 +15,13 @@ import Footer from "./Components/Footer/Footer";
 import JoinCommunity from "./Components/JoinCommunity/JoinCommunity";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Features from "./Components/Features/Features";
+import ExploreMore from "./Components/ExploreMore/ExploreMore";
 
 function App() {
   const location = useLocation();
   return (
     <div className="App">
+      
       {location.pathname != "/dashboard" && <Nav />}
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -28,12 +30,14 @@ function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/features" element={<Features />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/tAndC" element={<TermsAndConditions />} />
         <Route path="/actAsA" element={<ActAs />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <ExploreMore />
       {location.pathname != "/dashboard" && <Features />}
       {location.pathname != "/dashboard" && <JoinCommunity />}
       {location.pathname != "/dashboard" && <Footer />}

@@ -1,6 +1,7 @@
 import "./landing.css";
 import { useState } from "react";
 import Group from "../../Images/group.png";
+import { useNavigate } from "react-router-dom";
 export default function Landing() {
   // const [loggedOut, setLoggedOut] = useState(false);
   // const isSignedOut = (e) => {
@@ -11,6 +12,10 @@ export default function Landing() {
   //     console.log(loggedOut);
   //   }, 5000);
   // };
+  const navigate = useNavigate();
+  const handleDashboard = () => {
+    navigate("/dashboard");
+  };
 
   return (
     <div className="landing-page">
@@ -26,8 +31,7 @@ export default function Landing() {
           atque obcaecati?
         </div>
         <div className="landing-page-CTA">
-          <button>Get Started Now</button>
-          
+          <button onClick={handleDashboard}>Get Started Now</button>
         </div>
       </div>
     </div>
