@@ -20,7 +20,13 @@ export default function Dashboard() {
     setIsModalActive(isActive);
   };
   const selectedDashboardCard = (selectedCard) => setSelectedCard(selectedCard);
-  const handleModalSubmit = (value) => console.log(value);
+  const handleModalSubmit = (value) => {
+    handleActiveNav(2);
+  };
+
+  useEffect(() => {
+    console.log(activeNav);
+  }, [activeNav]);
 
   return (
     <div className="dashboard">

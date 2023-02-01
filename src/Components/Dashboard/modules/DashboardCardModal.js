@@ -1,5 +1,5 @@
 import { Modal, Box, Typography, Fade, Backdrop } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./dashboardModulesStyles/dashboardModal.css";
 export default function DashboardCardModal({
   isOpen,
@@ -8,9 +8,18 @@ export default function DashboardCardModal({
   modalSubmit,
 }) {
   const [modalInput, setModalInput] = useState("");
+  const [modalError, setModalError] = useState(false);
+
+  useEffect(() => {
+    setModalError(false);
+  }, [modalInput]);
 
   const handleClose = () => onClose(false);
   const handleModalSubmit = () => {
+    if (modalInput.length === 0) {
+      setModalError(true);
+      return;
+    }
     onClose(false);
     modalSubmit(modalInput);
   };
@@ -53,6 +62,10 @@ export default function DashboardCardModal({
                   autoFocus
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
+                      if (modalInput.length === 0) {
+                        setModalError(true);
+                        return;
+                      }
                       handleModalSubmit(modalInput);
                     }
                   }}
@@ -60,6 +73,7 @@ export default function DashboardCardModal({
                   type="text"
                   placeholder="Type something..."
                 />
+                {modalError && <div className="modalError">The name cannot be empty</div>}
               </div>
               <div>
                 <button onClick={handleModalSubmit}>Submit</button>
