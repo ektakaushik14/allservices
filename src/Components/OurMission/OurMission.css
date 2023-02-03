@@ -1,0 +1,43 @@
+.OurMission {
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 2rem;
+}
+.OurMission > :nth-child(1) {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.OurMission > :nth-child(1) > :nth-child(1) {
+  font-weight: 600;
+  background: -webkit-linear-gradient(left, #7049f6, #6bdffa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.OurMission > :nth-child(1) > :nth-child(2) {
+  font-size: 40px;
+  width: 50%;
+  text-align: center;
+  margin: 0.5rem 0;
+  font-weight: 700;
+  color: #170d42;
+  text-transform: capitalize;
+}
+.OurMission > :nth-child(1) > :nth-child(2) > span {
+  background: -webkit-linear-gradient(left, #7049f6, #6bdffa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.OurMission > :nth-child(1) > :nth-child(3) {
+  color: #9599b2;
+  width: 50%;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.OurMission > :nth-child(2) {
+  height: 70%;
+  width: 100%;
+}/*# sourceMappingURL=OurMission.css.map */

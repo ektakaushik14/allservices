@@ -3,6 +3,7 @@
   width: 100%;
   position: relative;
   overflow-y: hidden;
+  background-color: black;
 }
 .ExploreMore > :nth-of-type(1) {
   height: 100vh;
@@ -16,15 +17,16 @@
 }
 .ExploreMore > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(1) {
   width: 50%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .ExploreMore > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(1) > :nth-child(1) {
-  height: 10rem;
+  min-height: 10rem;
   width: 100%;
   font-size: 3rem;
+  color: white;
 }
 .ExploreMore > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(1) > :nth-child(1) > span {
   background: -webkit-linear-gradient(left, #7049f6, #6bdffa);
@@ -34,7 +36,7 @@
 .ExploreMore > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(1) > :nth-child(2) {
   height: 5rem;
   font-size: 0.8rem;
-  color: rgb(96, 91, 91);
+  color: #999999;
 }
 .ExploreMore > :nth-of-type(1) > :nth-of-type(1) > :nth-of-type(1) > :nth-child(3) {
   height: 2.5rem;
@@ -61,7 +63,7 @@
   height: 25rem;
   width: 25rem;
   border-radius: 10px;
-  box-shadow: 6px 6px 6px 2px rgb(0, 0, 0);
+  box-shadow: 6px 6px 6px 2px rgb(158, 158, 158);
 }
 .ExploreMore > :nth-of-type(1) > :nth-child(2) {
   height: 38%;
@@ -75,36 +77,77 @@
   align-items: center;
 }
 .ExploreMore > :nth-of-type(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) {
-  height: 50%;
+  height: 70%;
   width: 80%;
-  background-color: #8fe3ff;
-  padding-top: 2.5rem;
-  justify-content: space-evenly;
   display: flex;
-  border-radius: 10px;
-  box-shadow: 6px 6px 6px 2px rgb(0, 0, 0);
 }
 .ExploreMore > :nth-of-type(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1) {
-  width: 6%;
-  height: 30%;
+  height: 100%;
+  width: 15%;
   display: flex;
-  background-color: #fff;
   justify-content: center;
-  margin-left: 0.5rem;
-  align-items: center;
-  border-radius: 50%;
+  background-color: #1d5aff;
+  border: 2px solid #06335a;
+  padding-top: 2rem;
+  border-radius: 15px 0px 0px 15px;
 }
-.ExploreMore > :nth-of-type(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1) img {
-  height: 1.5rem;
-  width: 1.5rem;
+.ExploreMore > :nth-of-type(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1) {
+  height: 2.5rem;
+  width: 2.5rem;
+  box-shadow: 3px 3px 2px 1px rgb(0, 0, 0);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  background-color: #fff;
 }
 .ExploreMore > :nth-of-type(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2) {
-  width: 90%;
+  height: 100%;
+  width: 15%;
   display: flex;
-  padding-left: 0.8rem;
   justify-content: center;
-  word-spacing: 2px;
-  font-size: 0.95rem;
+  border: 2px solid #06335a;
+  background-color: #597cf2;
+  padding-top: 2rem;
+}
+.ExploreMore > :nth-of-type(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1) {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  box-shadow: 3px 3px 2px 1px rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  background-color: #fff;
+}
+.ExploreMore > :nth-of-type(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(3) {
+  height: 100%;
+  width: 70%;
+  border: 2px solid #06335a;
+  background-color: #8fe3ff;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 0px 15px 15px 0px;
+}
+.ExploreMore > :nth-of-type(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(1) {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  box-shadow: 3px 3px 2px 1px rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  background-color: #fff;
+}
+.ExploreMore > :nth-of-type(1) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(3) > :nth-child(2) {
+  width: 75%;
+  height: 80%;
+  font-size: 0.85rem;
+  padding-top: 0.6rem;
 }
 .ExploreMore > :nth-of-type(1) > :nth-child(2) > :nth-child(2) {
   height: 100%;
@@ -117,7 +160,7 @@
   height: 60%;
   width: 60%;
   border-radius: 10px;
-  box-shadow: 6px 6px 6px 2px rgb(0, 0, 0);
+  box-shadow: 6px 6px 6px 2px rgb(158, 158, 158);
 }
 .ExploreMore > :nth-of-type(1) > :nth-child(2) > :nth-child(2) > :nth-child(1) img {
   height: 100%;
@@ -133,7 +176,7 @@
   height: 25%;
   width: 28%;
   border-radius: 10px;
-  box-shadow: 6px 6px 6px 2px rgb(0, 0, 0);
+  box-shadow: 6px 6px 6px 2px rgb(158, 158, 158);
 }
 .extra-img img {
   height: 100%;

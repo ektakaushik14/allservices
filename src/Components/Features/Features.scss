@@ -1,6 +1,7 @@
 .features {
   min-height: 100vh;
   width: 100%;
+  background-color: black;
   & > :nth-child(1) {
     min-height: 30vh;
     width: 100%;
@@ -14,14 +15,13 @@
       width: 50%;
       font-size: 2.5rem;
       font-weight: 800;
-      background: -webkit-linear-gradient(left, #7049f6, #6bdffa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: white;
+      
     }
     & > :nth-child(2) {
       width: 50%;
       word-spacing: 1px;
-      color: #484848;
+      color: #918e8e;
     }
   }
   & > :nth-child(2) {
@@ -51,11 +51,12 @@
         & h3 {
           height: 3rem;
           font-size: 1.6rem;
+          color: white;
         }
         & p {
           font-size: 0.9rem;
           height: 3rem;
-          color: #484848;
+          color: #918e8e;
         }
       }
       & > :nth-child(2) {
@@ -92,11 +93,12 @@
         & h3 {
           height: 3rem;
           font-size: 1.6rem;
+          color: white;
         }
         & p {
           font-size: 0.9rem;
           height: 3rem;
-          color: #484848;
+          color: #918e8e;
         }
       }
       & > :nth-child(1) {
@@ -133,11 +135,12 @@
         & h3 {
           height: 3rem;
           font-size: 1.6rem;
+          color: white;
         }
         & p {
           font-size: 0.9rem;
           height: 3rem;
-          color: #484848;
+          color: #918e8e;
         }
       }
       & > :nth-child(2) {
@@ -174,11 +177,12 @@
         & h3 {
           height: 3rem;
           font-size: 1.6rem;
+          color: white;
         }
         & p {
           font-size: 0.9rem;
           height: 3rem;
-          color: #484848;
+          color: #918e8e;
         }
       }
       & > :nth-child(1) {

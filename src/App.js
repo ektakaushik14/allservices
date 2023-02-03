@@ -16,12 +16,13 @@ import JoinCommunity from "./Components/JoinCommunity/JoinCommunity";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Features from "./Components/Features/Features";
 import ExploreMore from "./Components/ExploreMore/ExploreMore";
+import OurMission from "./Components/OurMission/OurMission";
 
 function App() {
   const location = useLocation();
   return (
     <div className="App">
-      
+      {/* <OurMission /> */}
       {location.pathname != "/dashboard" && <Nav />}
       <Routes>
         <Route path="/" element={<Landing />} />

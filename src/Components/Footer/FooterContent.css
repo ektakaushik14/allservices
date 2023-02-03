@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  background-color: black;
 }
 .footerContent > :nth-of-type(1) {
   height: 5vh;

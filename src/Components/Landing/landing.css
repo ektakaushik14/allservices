@@ -2,7 +2,7 @@
   height: 100vh;
   width: 100%;
   position: relative;
-  background: #f9f9f9;
+  background: black;
 }
 
 .landing-page-img {
@@ -26,10 +26,11 @@
 }
 
 .landing-page-tagline {
-  background: -webkit-linear-gradient(left, #7049f6, #6bdffa);
+  color: rgb(49, 123, 187);
+  /* background: -webkit-linear-gradient(left, #7049f6, #6bdffa);
   margin-right: 5px;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
 }
 
 .landing-page-heading {
@@ -37,7 +38,7 @@
   line-height: 80px;
   width: 40%;
   font-weight: 700;
-  color: #141627;
+  color: white;
 }
 
 .landing-page-subheading {
@@ -57,10 +58,11 @@
   font-weight: 600;
   border: none;
   outline: none;
-  -webkit-box-shadow: 3px 3px 2px 1px rgb(0 0 0);
+  background-color:  rgb(49, 123, 187);
+  /* -webkit-box-shadow: 3px 3px 2px 1px rgb(0 0 0);
   -moz-box-shadow: 3px 3px 2px 1px rgb(0 0 0);
   box-shadow: 3px 3px 2px 1px rgb(0 0 0);
-  background: -webkit-linear-gradient(left, #7049f6, #6bdffa);
+  background: -webkit-linear-gradient(left, #7049f6, #6bdffa); */
   border-radius: 12px;
 }
 .landing-page-CTA button:hover {

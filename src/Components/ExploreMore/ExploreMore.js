@@ -6,7 +6,10 @@ export default function ExploreMore() {
       <div>
         <div>
           <div>
-            <h2>Lorem ipsum, dolor <span>sitamet</span>  consectetur adipisicing elit.</h2>
+            <h2>
+              Lorem ipsum, dolor <span>sitamet</span> consectetur adipisicing
+              elit.
+            </h2>
             <h4>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
               ab reprehenderit maiores labore perspiciatis aut accusamus earum
@@ -22,9 +25,13 @@ export default function ExploreMore() {
           <div>
             <div>
               <div>
-                <img src="https://www.freepnglogos.com/uploads/star-png/star-transparent-background-29.png" />
+                <div>1</div>
               </div>
               <div>
+                <div>2</div>
+              </div>
+              <div>
+                <div>3</div>
                 <p>
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Cupiditate, quam distinctio voluptatem nam minima minus,
