@@ -7,8 +7,13 @@ import Logo from "../../Images/CompanyLogo.png";
 import Search from "../../Images/search.png";
 import { Box, Button, Modal, Typography } from "@mui/material";
 import DashboardCardModal from "./modules/DashboardCardModal";
+import ProjectPage from "../ProjectPage/ProjectPage";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [search, setSearch] = useState("");
   const [activeNav, setActiveNav] = useState(0);
   const [isModalActive, setIsModalActive] = useState(false);
@@ -20,32 +25,39 @@ export default function Dashboard() {
     setIsModalActive(isActive);
   };
   const selectedDashboardCard = (selectedCard) => setSelectedCard(selectedCard);
-  const handleModalSubmit = (value) => {
+  const handleModalSubmit = (value, selectedCard) => {
     handleActiveNav(2);
+    setSelectedCard(selectedCard);
+    // const currentPath = location.pathname;
+    // const newPath = `${currentPath}/home/${selectedCard.name}=${value}`;
+    // navigate(newPath);
   };
 
   useEffect(() => {
-    console.log(activeNav);
+    setSearch("");
   }, [activeNav]);
 
   return (
     <div className="dashboard">
-      <DashboardSideNav activeNavProp={handleActiveNav} />
+      <DashboardSideNav activeNav={activeNav} activeNavProp={handleActiveNav} />
       <div className="dashboardCardWrapper">
         <div>
-          <div className="dashboardTopNavSearch">
-            <div>
+          {activeNav != 0 ? (
+            <div className="dashboardTopNavSearch">
               <div>
-                <img src={Search} alt="" />
+                <div>
+                  <img src={Search} alt="" />
+                </div>
+                <input
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="tools"
+                  type="text"
+                  value={search}
+                />
               </div>
-              <input
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="tools"
-                type="text"
-              />
+              <div>Search</div>
             </div>
-            <div>Search</div>
-          </div>
+          ) : null}
           <div className="dashboardTopNavLogo">
             <img src={Logo} alt="" />
           </div>
@@ -63,6 +75,11 @@ export default function Dashboard() {
                   selectedDashboardCard={selectedDashboardCard}
                 />
               ))}
+          </div>
+        )}
+        {activeNav === 2 && (
+          <div>
+            <ProjectPage selectedCard={selectedCard} />
           </div>
         )}
         {isModalActive && (

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./dashboardModulesStyles/dashboardnav.css";
 import Finger from "../../../Images/finger.png";
+import { contentServicesWithColor } from "../../../utils/contentConstants";
 
 const Navbar = ({ handleActiveClick, activeNav }) => (
   <nav className="dashboardSideNavbar">
@@ -23,7 +24,10 @@ const Navbar = ({ handleActiveClick, activeNav }) => (
           src="https://img.icons8.com/material-outlined/512/maintenance.png"
           alt=""
         />
-        Tools
+        <div>
+          <div>Tools</div>
+          <div>{contentServicesWithColor.length}</div>
+        </div>
       </li>
       <li
         className={activeNav === 2 ? "activeNav" : ""}
@@ -49,12 +53,11 @@ const Navbar = ({ handleActiveClick, activeNav }) => (
   </nav>
 );
 
-export default function DashboardSideNav({ activeNavProp }) {
-  const [activeNav, setActiveNav] = useState(0);
+export default function DashboardSideNav({ activeNav, activeNavProp }) {
   const handleActiveClick = (active) => {
-    setActiveNav(active);
     activeNavProp(active);
   };
+
   return (
     <div className="dashboardSideNav">
       <div className="dashboardSideNavHeader">
