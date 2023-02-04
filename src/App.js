@@ -26,7 +26,7 @@ function App() {
     <div className="App">
       {/* <PptDashboard /> */}
       {/* <OurMission /> */}
-      {/* {location.pathname != "/dashboard" && <Nav />} */}
+      {location.pathname.startsWith("/dashboard") ? null : <Nav />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
@@ -38,15 +38,20 @@ function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/tAndC" element={<TermsAndConditions />} />
         <Route path="/actAsA" element={<ActAs />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/pptdashboard" element={<PptDashboard />} />
-        <Route path="/createppt" element={<Createppt />} />
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="home" element={<Dashboard />} />
+          <Route path="home/:id" element={<Dashboard />} />
+        </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-      <ExploreMore />
-      {location.pathname != "/dashboard" && <Features />}
-      {location.pathname != "/dashboard" && <JoinCommunity />}
-      {location.pathname != "/dashboard" && <Footer />}
+      {location.pathname.startsWith("/dashboard") ? null : (
+        <>
+          <ExploreMore />
+          <Features />
+          <JoinCommunity />
+          <Footer />
+        </>
+      )}
     </div>
   );
 }

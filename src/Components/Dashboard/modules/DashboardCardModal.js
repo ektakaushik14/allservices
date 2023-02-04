@@ -1,6 +1,9 @@
 import { Modal, Box, Typography, Fade, Backdrop } from "@mui/material";
+import { doc, setDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import { db } from "../../../firebase";
 import "./dashboardModulesStyles/dashboardModal.css";
+import Loader from "../../../Images/loader.png";
 export default function DashboardCardModal({
   isOpen,
   onClose,
@@ -9,19 +12,25 @@ export default function DashboardCardModal({
 }) {
   const [modalInput, setModalInput] = useState("");
   const [modalError, setModalError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setModalError(false);
   }, [modalInput]);
 
   const handleClose = () => onClose(false);
-  const handleModalSubmit = () => {
+  const handleModalSubmit = async () => {
     if (modalInput.length === 0) {
       setModalError(true);
       return;
+    } else {
+      setLoading(true);
+      await setDoc(doc(db, "cities", "LA"), { ...selectedCard }).then(() => {
+        onClose(false);
+        setLoading(false);
+        modalSubmit(modalInput, selectedCard);
+      });
     }
-    onClose(false);
-    modalSubmit(modalInput);
   };
 
   const style = {
@@ -73,10 +82,14 @@ export default function DashboardCardModal({
                   type="text"
                   placeholder="Type something..."
                 />
-                {modalError && <div className="modalError">The name cannot be empty</div>}
+                {modalError && (
+                  <div className="modalError">The name cannot be empty</div>
+                )}
               </div>
               <div>
-                <button onClick={handleModalSubmit}>Submit</button>
+                <button onClick={handleModalSubmit}>
+                  {loading ? <img src={Loader} /> : "Submit"}
+                </button>
                 <button onClick={handleClose}>Cancel</button>
               </div>
             </div>

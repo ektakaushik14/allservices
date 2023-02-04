@@ -33,6 +33,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo1,
     isPaid: false,
+    longDesc: "Get precise answers to any questions you have with ease.",
   },
   {
     name: "Generating text",
@@ -42,6 +43,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo2,
     isPaid: false,
+    longDesc: "Create unique and compelling text with a single prompt.",
   },
   {
     name: "Code Completion",
@@ -51,6 +53,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo3,
     isPaid: true,
+    longDesc: "Speed up your coding with automated code completion.",
   },
   {
     name: "Write Test Cases",
@@ -60,6 +63,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo4,
     isPaid: true,
+    longDesc: "Ensure high-quality software with well-written test cases.",
   },
   {
     name: "Summarizing text",
@@ -70,6 +74,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo5,
     isPaid: true,
+    longDesc: "Quickly comprehend lengthy text with summarization.",
   },
   {
     name: "Transcribing audio",
@@ -79,6 +84,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo1,
     isPaid: true,
+    longDesc: "Get accurate written transcripts of any audio recordings.",
   },
   {
     name: "Providing definitions",
@@ -88,6 +94,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo2,
     isPaid: true,
+    longDesc: "Define words accurately and precisely",
   },
   {
     name: "Providing translations",
@@ -97,6 +104,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo3,
     isPaid: true,
+    longDesc: "Translate accurately into desired language",
   },
   {
     name: "Providing recommendations",
@@ -107,6 +115,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo4,
     isPaid: true,
+    longDesc: "Offer helpful suggestions and ideas",
   },
   {
     name: "Product descriptions",
@@ -116,6 +125,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo5,
     isPaid: true,
+    longDesc: "Create descriptive and attractive product summaries",
   },
   {
     name: "YouTube video scripts",
@@ -125,6 +135,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo1,
     isPaid: true,
+    longDesc: "Write engaging scripts for YouTube content",
   },
   {
     name: "Sales copywriting",
@@ -134,6 +145,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo2,
     isPaid: true,
+    longDesc: "Write persuasive sales copy to boost conversions",
   },
   {
     name: "Blog post writing",
@@ -143,6 +155,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo3,
     isPaid: true,
+    longDesc: "Create informative, engaging blog posts.",
   },
   {
     name: "Article writing",
@@ -152,6 +165,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo4,
     isPaid: true,
+    longDesc: "Produce in-depth articles on current topics.",
   },
   {
     name: "Social media posts",
@@ -161,6 +175,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo5,
     isPaid: true,
+    longDesc: "Craft compelling social media updates.",
   },
   {
     name: "Transcription",
@@ -170,6 +185,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo1,
     isPaid: true,
+    longDesc: "Accurately transcribe audio content.",
   },
   {
     name: "Translation",
@@ -179,6 +195,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo2,
     isPaid: true,
+    longDesc: "Translate text accurately and effectively.",
   },
   {
     name: "Summarization",
@@ -189,6 +206,7 @@ const contentServicesWithColor = [
     category: "Skill",
     img: Photo3,
     isPaid: true,
+    longDesc: "Efficiently condense lengthy text.",
   },
 ];
 
