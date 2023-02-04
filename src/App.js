@@ -17,13 +17,16 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import Features from "./Components/Features/Features";
 import ExploreMore from "./Components/ExploreMore/ExploreMore";
 import OurMission from "./Components/OurMission/OurMission";
+import PptDashboard from "./Components/PptDashboard/PptDashboard";
+import Createppt from "./Components/PptDashboard/Createppt";
 
 function App() {
   const location = useLocation();
   return (
     <div className="App">
+      {/* <PptDashboard /> */}
       {/* <OurMission /> */}
-      {location.pathname != "/dashboard" && <Nav />}
+      {/* {location.pathname != "/dashboard" && <Nav />} */}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
@@ -36,6 +39,8 @@ function App() {
         <Route path="/tAndC" element={<TermsAndConditions />} />
         <Route path="/actAsA" element={<ActAs />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/pptdashboard" element={<PptDashboard />} />
+        <Route path="/createppt" element={<Createppt />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <ExploreMore />
