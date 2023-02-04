@@ -1,0 +1,50 @@
+.PptDashboard {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pptSidebar {
+  height: 100vh;
+  width: 15%;
+  border: 1px solid red;
+}
+
+.pptTemplate {
+  height: 100vh;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid red;
+}
+
+.pptNav {
+  height: 10vh;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pptNav > :nth-child(1) {
+  color: #666666;
+  font-size: 0.8rem;
+}
+.pptNav > :nth-child(2) {
+  padding: 0.5rem 1.8rem;
+  background-color: rgb(31, 122, 158);
+  color: white;
+  border-radius: 10px;
+}
+.pptNav > :nth-child(2) :hover {
+  background-color: rgb(7, 61, 82);
+}
+
+.pptCard {
+  height: 90vh;
+  width: 90%;
+  border: 1px solid red;
+  color: white;
+}/*# sourceMappingURL=PptDashboard.css.map */

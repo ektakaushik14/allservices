@@ -17,11 +17,14 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import Features from "./Components/Features/Features";
 import ExploreMore from "./Components/ExploreMore/ExploreMore";
 import OurMission from "./Components/OurMission/OurMission";
+import PptDashboard from "./Components/PptDashboard/PptDashboard";
+import Createppt from "./Components/PptDashboard/Createppt";
 
 function App() {
   const location = useLocation();
   return (
     <div className="App">
+      {/* <PptDashboard /> */}
       {/* <OurMission /> */}
       {location.pathname.startsWith("/dashboard") ? null : <Nav />}
       <Routes>
