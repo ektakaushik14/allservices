@@ -52,30 +52,27 @@ export default function ProjectPage({ selectedCard, userDetails }) {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   const docRef = doc(db, "Dashboard", userDetails.email);
-  //   const docSnap = getDocs(collection(docRef, "Project"))
-  //     .then((snapshot) => {
-  //       var temp = [];
-  //       snapshot.docs.forEach((doc) => {
-  //         temp.push({ [doc.id]: doc.data() });
-  //         if (temp.length === snapshot.docs.length) {
-  //           setData(temp);
-  //         }
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     })
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
+  useEffect(() => {
+    setLoading(true);
+    const docRef = doc(db, "Dashboard", userDetails.email);
+    const docSnap = getDocs(collection(docRef, "Project"))
+      .then((snapshot) => {
+        var temp = [];
+        snapshot.docs.forEach((doc) => {
+          temp.push({ [doc.id]: doc.data() });
+          if (temp.length === snapshot.docs.length) {
+            setData(temp);
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        console.log(data);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div className="projectPageContainer">
@@ -88,26 +85,43 @@ export default function ProjectPage({ selectedCard, userDetails }) {
       </div>
       <ProjectBanner />
       <div className="allProjectsContainer">
-        {[1, 1].map(() => (
-          <div className="fetchedProjects">
-            <div>Name</div>
-            <div className="allProjects">
-              {loading ? (
-                <div></div>
-              ) : (
-                [1, 1, 1, 1].map(() => (
-                  <div className="skeleton">
-                    <div></div>
-                    <div className="skeletonContentContainer">
-                      <div className="skeleton skeletonContent"></div>
-                      <div className="skeleton skeletonContent"></div>
+        {!loading && data.length != 0 ? (
+          data.map((d) => (
+            <div className="fetchedProjects">
+              <div className="fetchedProjectsHeading">{Object.keys(d)[0]}</div>
+              <div className="allProjects">
+                {Object.keys(d[Object.keys(d)[0]]).map((title) => {
+                  const dataList = d[Object.keys(d)[0]][title];
+                  return (
+                    <div
+                      className="skeleton"
+                      style={{
+                        background: `linear-gradient(153deg, ${dataList.color} 0%, ${dataList.secondColor} 100%)`,
+                      }}
+                    >
+                      <div className="skeletonContentContainer">
+                        <div className="skeleton skeletonContent">{title}</div>
+                      </div>
                     </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="fetchingProjects">
+            <div className="skeleton fetchingProjectsHeading"></div>
+            <div className="allProjects">
+              {[1, 1, 1, 1].map(() => (
+                <div className="skeleton">
+                  <div className="skeletonContentContainer">
+                    <div className="skeleton skeletonContent"></div>
                   </div>
-                ))
-              )}
+                </div>
+              ))}
             </div>
           </div>
-        ))}
+        )}
       </div>
       {/* project card Heading */}
       {/* project cards */}
