@@ -24,7 +24,7 @@ function App() {
   const location = useLocation();
   return (
     <div className="App">
-      {/* <PptDashboard /> */}
+    {/* <PptDashboard /> */}
       {/* <OurMission /> */}
       {location.pathname.startsWith("/dashboard") ? null : <Nav />}
       <Routes>

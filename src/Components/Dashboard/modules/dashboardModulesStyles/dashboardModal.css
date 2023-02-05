@@ -7,13 +7,15 @@
   width: 90%;
   margin: auto;
   flex-direction: column;
+  background-color: #141414;
 }
 .modalContainer > :nth-child(1) {
   height: 4rem;
   display: flex;
   align-items: center;
   font-size: 1.3rem;
-  color: #5e81f4;
+  color: #e2e1e1;
+  text-align: center;
 }
 .modalContainer > :nth-child(2) {
   height: 7.5rem;
@@ -21,20 +23,24 @@
 .modalContainer > :nth-child(2) > :nth-child(1) {
   height: 1.5rem;
   font-weight: 500;
+  color: #e2e1e1;
 }
 .modalContainer > :nth-child(2) > :nth-child(2) {
   height: 2rem;
   font-size: 0.8rem;
-  color: grey;
+  color: rgb(206, 206, 206);
 }
-.modalContainer > :nth-child(2) > :nth-child(3) {
+.modalContainer > :nth-child(2) > input {
   height: 2rem;
   width: 100%;
   border-radius: 6px;
   outline: none;
   padding-left: 0.5rem;
   font-size: 0.7rem;
-  border: 2px solid #5e81f4;
+  border: 2px solid white;
+}
+.modalContainer > :nth-child(2) .namesError {
+  border: 2px solid red;
 }
 .modalContainer > :nth-child(3) {
   height: 2rem;
@@ -51,6 +57,9 @@
   background-color: #5779e8;
   border-radius: 5px;
   font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .modalContainer > :nth-child(3) > :nth-of-type(1) > img {
   width: 24px;
@@ -66,8 +75,8 @@
   cursor: pointer;
   padding: 0rem 1.5rem;
   width: 100px;
-  border: 2px solid #5e81f4;
-  color: #5e81f4;
+  border: 2px solid #e2e1e1;
+  color: #e2e1e1;
   background-color: transparent;
   border-radius: 5px;
   font-size: 0.75rem;

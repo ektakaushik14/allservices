@@ -1,5 +1,6 @@
 .projectPageContainer {
   height: 90vh;
+  overflow: scroll;
 }
 
 .projectPageBannerContainer {
@@ -72,5 +73,49 @@
       height: 150px;
       object-fit: contain;
     }
+  }
+}
+.allProjectsContainer {
+  padding: 1rem;
+}
+.fetchedProjects {
+  margin: 2rem 0;
+}
+.allProjects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  place-items: center;
+  gap: 2rem 1rem;
+}
+
+.skeleton {
+  width: 200px;
+  height: 250px;
+  border-radius: 24px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+.skeletonContentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  padding-bottom: 1rem;
+}
+.skeletonContent {
+  height: 18px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  margin: 5px 0;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background: hsl(180, 2%, 10%);
+  }
+  100% {
+    background: hsl(180, 2%, 15%);
   }
 }

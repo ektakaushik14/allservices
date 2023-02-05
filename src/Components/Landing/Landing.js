@@ -1,17 +1,9 @@
 import "./landing.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Group from "../../Images/group.png";
 import { useNavigate } from "react-router-dom";
+
 export default function Landing() {
-  // const [loggedOut, setLoggedOut] = useState(false);
-  // const isSignedOut = (e) => {
-  //   console.log(loggedOut);
-  //   setLoggedOut(e);
-  //   setTimeout(() => {
-  //     setLoggedOut(false);
-  //     console.log(loggedOut);
-  //   }, 5000);
-  // };
   const navigate = useNavigate();
   const handleDashboard = () => {
     navigate("/dashboard");

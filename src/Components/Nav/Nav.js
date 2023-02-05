@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
 import { Link, useNavigate } from "react-router-dom";
@@ -11,9 +11,32 @@ import CompanyLogo from "../../Images/CompanyLogo.png";
 
 export default function Nav() {
   const navigate = useNavigate();
+  const auth = getAuth();
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const handleSignUp = () => {
-    navigate("/login");
+    if (isUserLoggedIn) {
+      signOut(auth)
+        .then(() => {
+          // Sign-out successful.
+          setIsUserLoggedIn(false);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      navigate("/login");
+    }
   };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsUserLoggedIn(true);
+      } else {
+        // navigate("/login");
+      }
+    });
+  }, [auth]);
 
   return (
     <div className="headerNav">
@@ -41,7 +64,9 @@ export default function Nav() {
           </ul>
         </nav>
         <div className="navSignUp">
-          <button onClick={handleSignUp}>Sign Up</button>
+          <button onClick={handleSignUp}>
+            {isUserLoggedIn ? "Sign Out" : "Sign In"}
+          </button>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { Modal, Box, Typography, Fade, Backdrop } from "@mui/material";
-import { doc, setDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getDocs, setDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../../../firebase";
 import "./dashboardModulesStyles/dashboardModal.css";
@@ -9,28 +9,74 @@ export default function DashboardCardModal({
   onClose,
   selectedCard,
   modalSubmit,
+  userDetails,
 }) {
   const [modalInput, setModalInput] = useState("");
-  const [modalError, setModalError] = useState(false);
+
   const [loading, setLoading] = useState(false);
+  const [availableNames, setAvailableNames] = useState([]);
+  const [namesError, setNamesError] = useState("");
 
   useEffect(() => {
-    setModalError(false);
+    setLoading(true);
+    const docRef = doc(db, "Dashboard", userDetails.email);
+    const docSnap = getDocs(collection(docRef, "Project"))
+      .then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          var temp = availableNames;
+          temp.push({ [doc.id]: Object.keys(doc.data()) });
+          setAvailableNames(temp);
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        console.log(availableNames);
+        setLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    const nameList = availableNames.find(
+      (obj) => Object.keys(obj)[0] === selectedCard.name
+    );
+    if (nameList && Object.values(nameList)) {
+      const checkName = Object.values(nameList)[0].some((name) =>
+        name.startsWith(modalInput)
+      );
+      if (checkName && modalInput.length >= 3) {
+        setNamesError("Name already exist");
+      } else {
+        setNamesError("");
+      }
+    }
   }, [modalInput]);
 
   const handleClose = () => onClose(false);
   const handleModalSubmit = async () => {
-    if (modalInput.length === 0) {
-      setModalError(true);
-      return;
-    } else {
+    if (userDetails) {
       setLoading(true);
-      await setDoc(doc(db, "cities", "LA"), { ...selectedCard }).then(() => {
-        onClose(false);
-        setLoading(false);
-        modalSubmit(modalInput, selectedCard);
-      });
+      const colRef = collection(db, "Dashboard", userDetails.email, "Project");
+      await setDoc(
+        doc(colRef, selectedCard.name),
+        { [modalInput]: { ...selectedCard } },
+        { merge: true }
+      )
+        .then(() => {
+          modalSubmit(modalInput, selectedCard);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          onClose(false);
+          setLoading(false);
+        });
     }
+  };
+  const handleModalInput = (e) => {
+    setModalInput(e.target.value.trim());
   };
 
   const style = {
@@ -40,7 +86,7 @@ export default function DashboardCardModal({
     transform: "translate(-50%, -50%)",
     height: 250,
     width: 400,
-    bgcolor: "white",
+    bgcolor: "#141414",
     borderRadius: "12px",
     boxShadow: 30,
     outline: "none",
@@ -68,26 +114,35 @@ export default function DashboardCardModal({
                 <div>Project Title</div>
                 <div>Make It Memorable</div>
                 <input
+                  className={namesError.length != 0 ? "namesError" : ""}
                   autoFocus
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
-                      if (modalInput.length === 0) {
-                        setModalError(true);
+                      if (modalInput.length < 3 || namesError.length != 0) {
                         return;
+                      } else {
+                        handleModalSubmit(modalInput);
                       }
-                      handleModalSubmit(modalInput);
                     }
                   }}
-                  onChange={(e) => setModalInput(e.target.value)}
+                  onChange={(e) => handleModalInput(e)}
                   type="text"
                   placeholder="Type something..."
                 />
-                {modalError && (
-                  <div className="modalError">The name cannot be empty</div>
+
+                {namesError.length != 0 && (
+                  <div className="modalError">{namesError}</div>
                 )}
               </div>
               <div>
-                <button onClick={handleModalSubmit}>
+                <button
+                  disabled={
+                    modalInput.length < 3 || namesError.length != 0
+                      ? true
+                      : false
+                  }
+                  onClick={handleModalSubmit}
+                >
                   {loading ? <img src={Loader} /> : "Submit"}
                 </button>
                 <button onClick={handleClose}>Cancel</button>

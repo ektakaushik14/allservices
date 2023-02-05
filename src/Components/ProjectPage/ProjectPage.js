@@ -1,8 +1,10 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { contentServicesWithColor } from "../../utils/contentConstants";
+import { addDoc, collection, doc, getDocs, setDoc } from "firebase/firestore";
 import "@splidejs/react-splide/css";
 import "./projectPageStyles/projectPage.css";
+import { db } from "../../firebase";
 
 const options = {
   type: "loop",
@@ -46,7 +48,35 @@ const ProjectBanner = () => (
   </Splide>
 );
 
-export default function ProjectPage({ selectedCard }) {
+export default function ProjectPage({ selectedCard, userDetails }) {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   const docRef = doc(db, "Dashboard", userDetails.email);
+  //   const docSnap = getDocs(collection(docRef, "Project"))
+  //     .then((snapshot) => {
+  //       var temp = [];
+  //       snapshot.docs.forEach((doc) => {
+  //         temp.push({ [doc.id]: doc.data() });
+  //         if (temp.length === snapshot.docs.length) {
+  //           setData(temp);
+  //         }
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     })
+  //     .finally(() => {
+  //       setLoading(false);
+  //     });
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
+
   return (
     <div className="projectPageContainer">
       <div className="projectPageBannerContainer">
@@ -57,6 +87,28 @@ export default function ProjectPage({ selectedCard }) {
         />
       </div>
       <ProjectBanner />
+      <div className="allProjectsContainer">
+        {[1, 1].map(() => (
+          <div className="fetchedProjects">
+            <div>Name</div>
+            <div className="allProjects">
+              {loading ? (
+                <div></div>
+              ) : (
+                [1, 1, 1, 1].map(() => (
+                  <div className="skeleton">
+                    <div></div>
+                    <div className="skeletonContentContainer">
+                      <div className="skeleton skeletonContent"></div>
+                      <div className="skeleton skeletonContent"></div>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
       {/* project card Heading */}
       {/* project cards */}
     </div>

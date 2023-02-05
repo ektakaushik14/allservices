@@ -1,28 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { contentServicesWithColor } from "../../utils/contentConstants";
 import "./dashboard.css";
 import DashboardCard from "./modules/DashboardCard";
 import DashboardSideNav from "./modules/DashboardSideNav";
 import Logo from "../../Images/CompanyLogo.png";
 import Search from "../../Images/search.png";
-import { Box, Button, Modal, Typography } from "@mui/material";
 import DashboardCardModal from "./modules/DashboardCardModal";
 import ProjectPage from "../ProjectPage/ProjectPage";
 import { useLocation, useNavigate } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default function Dashboard() {
   const navigate = useNavigate();
   const location = useLocation();
+  const auth = getAuth();
 
   const [search, setSearch] = useState("");
   const [activeNav, setActiveNav] = useState(0);
   const [isModalActive, setIsModalActive] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [userDetails, setUserDetails] = useState(null);
   const handleActiveNav = (nav) => {
     setActiveNav(nav);
   };
   const dashboardClickHandle = (isActive) => {
-    setIsModalActive(isActive);
+    if (isUserLoggedIn) {
+      setIsModalActive(isActive);
+    } else {
+      navigate("/login");
+    }
   };
   const selectedDashboardCard = (selectedCard) => setSelectedCard(selectedCard);
   const handleModalSubmit = (value, selectedCard) => {
@@ -32,6 +39,15 @@ export default function Dashboard() {
     // const newPath = `${currentPath}/home/${selectedCard.name}=${value}`;
     // navigate(newPath);
   };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsUserLoggedIn(true);
+        setUserDetails(user);
+      }
+    });
+  }, []);
 
   useEffect(() => {
     setSearch("");
@@ -79,11 +95,15 @@ export default function Dashboard() {
         )}
         {activeNav === 2 && (
           <div>
-            <ProjectPage selectedCard={selectedCard} />
+            <ProjectPage
+              userDetails={userDetails}
+              selectedCard={selectedCard}
+            />
           </div>
         )}
         {isModalActive && (
           <DashboardCardModal
+            userDetails={userDetails}
             modalSubmit={handleModalSubmit}
             isOpen={isModalActive}
             onClose={dashboardClickHandle}
