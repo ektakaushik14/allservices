@@ -20,8 +20,8 @@ export default function Createppt() {
       </div>
       <div>
         <div>
-          <img src="https://icons8.com/icon/mZV5Hl9U39rH/plus-math" />
-          <img src="" />
+          <img src="https://img.icons8.com/ios-glyphs/256/plus-math.png" />
+          <img src="https://img.icons8.com/external-those-icons-lineal-those-icons/256/external-Palette-design-those-icons-lineal-those-icons.png" />
         </div>
       </div>
     </div>

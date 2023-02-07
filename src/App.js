@@ -26,7 +26,10 @@ function App() {
     <div className="App">
       {/* <PptDashboard /> */}
       {/* <OurMission /> */}
-      {location.pathname.startsWith("/dashboard") ? null : <Nav />}
+      {location.pathname.startsWith("/dashboard") ||
+      location.pathname.includes("ppt") ? null : (
+        <Nav />
+      )}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
@@ -46,7 +49,8 @@ function App() {
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-      {location.pathname.startsWith("/dashboard") ? null : (
+      {location.pathname.startsWith("/dashboard") ||
+      location.pathname.includes("ppt") ? null : (
         <>
           <ExploreMore />
           <Features />
