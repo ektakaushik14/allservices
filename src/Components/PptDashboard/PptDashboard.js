@@ -18,12 +18,12 @@ export default function PptDashboard(tempCard) {
           <button onClick={handlePptClick}>Create</button>
         </div>
         <div className="pptCard">
-          {contentTemplates.map((tempCard) => (
-            <div>
-              <div>
+          {contentTemplates.map((tempCard,index) => (
+            <div className="ptcard" key={index}>
+              <div className="card-image">
                 <img src={tempCard.img} alt="" />
               </div>
-              <div>{tempCard.name}</div>
+              <div className="card-name">{tempCard.name}</div>
             </div>
           ))}
         </div>
