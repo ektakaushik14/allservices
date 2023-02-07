@@ -24,7 +24,7 @@ function App() {
   const location = useLocation();
   return (
     <div className="App">
-    {/* <PptDashboard /> */}
+      {/* <PptDashboard /> */}
       {/* <OurMission /> */}
       {location.pathname.startsWith("/dashboard") ? null : <Nav />}
       <Routes>
@@ -38,6 +38,8 @@ function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/tAndC" element={<TermsAndConditions />} />
         <Route path="/actAsA" element={<ActAs />} />
+        <Route path="/pptdashboard" element={<PptDashboard />} />
+        <Route path="/createppt" element={<Createppt />} />
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="home" element={<Dashboard />} />
           <Route path="home/:id" element={<Dashboard />} />
