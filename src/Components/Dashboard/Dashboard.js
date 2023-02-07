@@ -9,6 +9,8 @@ import DashboardCardModal from "./modules/DashboardCardModal";
 import ProjectPage from "../ProjectPage/ProjectPage";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -35,6 +37,7 @@ export default function Dashboard() {
   const handleModalSubmit = (value, selectedCard) => {
     handleActiveNav(2);
     setSelectedCard(selectedCard);
+    notify();
     // const currentPath = location.pathname;
     // const newPath = `${currentPath}/home/${selectedCard.name}=${value}`;
     // navigate(newPath);
@@ -52,9 +55,21 @@ export default function Dashboard() {
   useEffect(() => {
     setSearch("");
   }, [activeNav]);
+  const notify = () =>
+    toast.success("Project created successfully", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
 
   return (
     <div className="dashboard">
+      <ToastContainer />
       <DashboardSideNav activeNav={activeNav} activeNavProp={handleActiveNav} />
       <div className="dashboardCardWrapper">
         <div>

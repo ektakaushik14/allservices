@@ -4,6 +4,17 @@ const Photo3 = require("../Images/dashboard Images/photo3.png");
 const Photo4 = require("../Images/dashboard Images/photo4.png");
 const Photo5 = require("../Images/dashboard Images/photo5.png");
 
+const ProjectPhoto1 = require("../Images/Project Photo/projectPhoto1.png");
+const ProjectPhoto2 = require("../Images/Project Photo/projectPhoto2.png");
+const ProjectPhoto3 = require("../Images/Project Photo/projectPhoto3.png");
+const ProjectPhoto4 = require("../Images/Project Photo/projectPhoto4.png");
+const ProjectPhoto5 = require("../Images/Project Photo/projectPhoto5.png");
+const ProjectPhoto6 = require("../Images/Project Photo/projectPhoto6.png");
+const ProjectPhoto7 = require("../Images/Project Photo/projectPhoto7.png");
+const ProjectPhoto8 = require("../Images/Project Photo/projectPhoto8.png");
+const ProjectPhoto9 = require("../Images/Project Photo/projectPhoto9.png");
+const ProjectPhoto10 = require("../Images/Project Photo/projectPhoto10.png");
+
 const contentServices = [
   "Answering questions",
   "Generating text",
@@ -210,4 +221,17 @@ const contentServicesWithColor = [
   },
 ];
 
-export { contentServices, contentServicesWithColor };
+const projectContentPhotos = [
+  ProjectPhoto1,
+  ProjectPhoto2,
+  ProjectPhoto3,
+  ProjectPhoto4,
+  ProjectPhoto5,
+  ProjectPhoto6,
+  ProjectPhoto7,
+  ProjectPhoto8,
+  ProjectPhoto9,
+  ProjectPhoto10,
+];
+
+export { contentServices, contentServicesWithColor, projectContentPhotos };
