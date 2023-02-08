@@ -20,7 +20,6 @@
   background: #f7f5fe;
   border-radius: 20px;
   font-weight: 500;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   padding: 0.4rem 0.6rem;
@@ -35,7 +34,6 @@
 .paidSubTitle-text {
   border-radius: 20px;
   font-weight: 500;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   padding: 0.4rem 0.6rem;

@@ -79,6 +79,21 @@
   padding: 1rem;
   margin: 0 1.5rem;
 }
+.emptyProjectAddButton {
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & > button {
+    border: none;
+    outline: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 10px;
+    color: #e2e1e1;
+    background-color: #505050;
+  }
+}
+
 .fetchingProjects {
   margin: 2rem 0;
   & .fetchingProjectsHeading {
@@ -137,22 +152,43 @@
   }
 
   & .skeleton {
+    cursor: pointer;
     width: 200px;
     height: 250px;
     border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+
+    & > .skeletonImage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 90%;
+      flex: 1;
+      margin: 10px;
+      height: 150px;
+      & > img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
   }
   & .skeletonContentContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    height: 100%;
-    padding-bottom: 1rem;
+    padding-bottom: 10px;
+    width: 100%;
   }
   & .skeletonContent {
     color: #505050;
     font-weight: 500;
-    height: 3rem;
+    height: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -168,6 +204,14 @@
     backdrop-filter: blur(6.8px);
     -webkit-backdrop-filter: blur(6.8px);
     animation: none;
+    & > div {
+      text-align: start;
+      width: 90%;
+    }
+  }
+  .skeletonTokensUsed {
+    font-size: 12px;
+    color: #505050;
   }
 }
 

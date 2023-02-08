@@ -43,6 +43,10 @@ export default function Dashboard() {
     // navigate(newPath);
   };
 
+  const handleEmptyProjectButton = () => {
+    handleActiveNav(1);
+  };
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -113,6 +117,7 @@ export default function Dashboard() {
             <ProjectPage
               userDetails={userDetails}
               selectedCard={selectedCard}
+              handleEmptyProjectButton={handleEmptyProjectButton}
             />
           </div>
         )}

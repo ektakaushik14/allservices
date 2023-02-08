@@ -1,7 +1,17 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import React, { useEffect, useState } from "react";
-import { contentServicesWithColor } from "../../utils/contentConstants";
-import { addDoc, collection, doc, getDocs, setDoc } from "firebase/firestore";
+import {
+  contentServicesWithColor,
+  projectContentPhotos,
+} from "../../utils/contentConstants";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDocs,
+  setDoc,
+  orderBy,
+} from "firebase/firestore";
 import "@splidejs/react-splide/css";
 import "./projectPageStyles/projectPage.css";
 import { db } from "../../firebase";
@@ -48,9 +58,14 @@ const ProjectBanner = () => (
   </Splide>
 );
 
-export default function ProjectPage({ selectedCard, userDetails }) {
+export default function ProjectPage({
+  selectedCard,
+  userDetails,
+  handleEmptyProjectButton,
+}) {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
+  const [isDataEmpty, setIsDataEmpty] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -58,7 +73,12 @@ export default function ProjectPage({ selectedCard, userDetails }) {
     const docSnap = getDocs(collection(docRef, "Project"))
       .then((snapshot) => {
         var temp = [];
+        if (snapshot.docs.length === 0) {
+          setIsDataEmpty(true);
+          return;
+        }
         snapshot.docs.forEach((doc) => {
+          setIsDataEmpty(false);
           temp.push({ [doc.id]: doc.data() });
           if (temp.length === snapshot.docs.length) {
             setData(temp);
@@ -73,6 +93,10 @@ export default function ProjectPage({ selectedCard, userDetails }) {
         setLoading(false);
       });
   }, []);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return (
     <div className="projectPageContainer">
@@ -90,7 +114,7 @@ export default function ProjectPage({ selectedCard, userDetails }) {
             <div className="fetchedProjects">
               <div className="fetchedProjectsHeading">{Object.keys(d)[0]}</div>
               <div className="allProjects">
-                {Object.keys(d[Object.keys(d)[0]]).map((title) => {
+                {Object.keys(d[Object.keys(d)[0]]).map((title, i) => {
                   const dataList = d[Object.keys(d)[0]][title];
                   return (
                     <div
@@ -99,8 +123,23 @@ export default function ProjectPage({ selectedCard, userDetails }) {
                         background: `linear-gradient(153deg, ${dataList.color} 0%, ${dataList.secondColor} 100%)`,
                       }}
                     >
+                      <div className="skeletonImage">
+                        <img
+                          src={
+                            i >= 10
+                              ? projectContentPhotos[i % 10]
+                              : projectContentPhotos[i]
+                          }
+                          alt=""
+                        />
+                      </div>
                       <div className="skeletonContentContainer">
-                        <div className="skeleton skeletonContent">{title}</div>
+                        <div className="skeleton skeletonContent">
+                          <div>
+                            <div>{title}</div>
+                            <div className="skeletonTokensUsed">Tokens Used : -</div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   );
@@ -108,6 +147,10 @@ export default function ProjectPage({ selectedCard, userDetails }) {
               </div>
             </div>
           ))
+        ) : isDataEmpty ? (
+          <div className="emptyProjectAddButton">
+            <button onClick={handleEmptyProjectButton}>Create Project</button>
+          </div>
         ) : (
           <div className="fetchingProjects">
             <div className="skeleton fetchingProjectsHeading"></div>

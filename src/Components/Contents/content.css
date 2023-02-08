@@ -53,8 +53,7 @@
   margin-top: 1rem;
   width: 100%;
   align-items: center;
-  -webkit-animation: infiniteScrolling 30s ease-in-out infinite alternate;
-          animation: infiniteScrolling 30s ease-in-out infinite alternate;
+  animation: infiniteScrolling 30s ease-in-out infinite alternate;
   text-transform: capitalize;
 }
 .contentServicesContainer .activeContentServicesContainer {
@@ -78,20 +77,9 @@
   flex-direction: row-reverse;
 }
 
-@-webkit-keyframes infiniteScrolling {
-  to {
-    transform: translateX(-75%);
-  }
-}
-
 @keyframes infiniteScrolling {
   to {
     transform: translateX(-75%);
-  }
-}
-@-webkit-keyframes infiniteScrolling1 {
-  to {
-    transform: translateX(-50%);
   }
 }
 @keyframes infiniteScrolling1 {

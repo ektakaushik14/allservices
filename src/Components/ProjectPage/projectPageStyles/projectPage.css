@@ -72,6 +72,21 @@
   margin: 0 1.5rem;
 }
 
+.emptyProjectAddButton {
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.emptyProjectAddButton > button {
+  border: none;
+  outline: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 10px;
+  color: #e2e1e1;
+  background-color: #505050;
+}
+
 .fetchingProjects {
   margin: 2rem 0;
 }
@@ -90,8 +105,7 @@
   width: 200px;
   height: 250px;
   border-radius: 24px;
-  -webkit-animation: skeleton-loading 1s linear infinite alternate;
-          animation: skeleton-loading 1s linear infinite alternate;
+  animation: skeleton-loading 1s linear infinite alternate;
 }
 .fetchingProjects .skeletonContentContainer {
   display: flex;
@@ -112,8 +126,7 @@
   margin-right: auto;
   border-radius: 12px;
   margin: 5px 0;
-  -webkit-animation: skeleton-content-loading 1s linear infinite alternate;
-          animation: skeleton-content-loading 1s linear infinite alternate;
+  animation: skeleton-content-loading 1s linear infinite alternate;
 }
 
 .fetchedProjects {
@@ -132,22 +145,43 @@
   gap: 2rem 1rem;
 }
 .fetchedProjects .skeleton {
+  cursor: pointer;
   width: 200px;
   height: 250px;
   border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+.fetchedProjects .skeleton > .skeletonImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  flex: 1;
+  margin: 10px;
+  height: 150px;
+}
+.fetchedProjects .skeleton > .skeletonImage > img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .fetchedProjects .skeletonContentContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  height: 100%;
-  padding-bottom: 1rem;
+  padding-bottom: 10px;
+  width: 100%;
 }
 .fetchedProjects .skeletonContent {
   color: #505050;
   font-weight: 500;
-  height: 3rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -162,17 +196,15 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(6.8px);
   -webkit-backdrop-filter: blur(6.8px);
-  -webkit-animation: none;
-          animation: none;
+  animation: none;
 }
-
-@-webkit-keyframes skeleton-loading {
-  0% {
-    background: hsl(180deg, 2%, 10%);
-  }
-  100% {
-    background: hsl(180deg, 2%, 15%);
-  }
+.fetchedProjects .skeletonContent > div {
+  text-align: start;
+  width: 90%;
+}
+.fetchedProjects .skeletonTokensUsed {
+  font-size: 12px;
+  color: #505050;
 }
 
 @keyframes skeleton-loading {
@@ -181,14 +213,6 @@
   }
   100% {
     background: hsl(180deg, 2%, 15%);
-  }
-}
-@-webkit-keyframes skeleton-content-loading {
-  0% {
-    background: hsl(180deg, 2%, 21%);
-  }
-  100% {
-    background: hsl(180deg, 2%, 17%);
   }
 }
 @keyframes skeleton-content-loading {

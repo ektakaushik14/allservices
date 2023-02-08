@@ -1,5 +1,12 @@
 import { Modal, Box, Typography, Fade, Backdrop } from "@mui/material";
-import { addDoc, collection, doc, getDocs, setDoc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDocs,
+  setDoc,
+  serverTimestamp,
+} from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../../../firebase";
 import "./dashboardModulesStyles/dashboardModal.css";
@@ -60,7 +67,7 @@ export default function DashboardCardModal({
       const colRef = collection(db, "Dashboard", userDetails.email, "Project");
       await setDoc(
         doc(colRef, selectedCard.name),
-        { [modalInput]: { ...selectedCard } },
+        { [modalInput]: { ...selectedCard, createdAt: serverTimestamp() } },
         { merge: true }
       )
         .then(() => {
