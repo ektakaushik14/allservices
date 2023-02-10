@@ -62,6 +62,7 @@ export default function ProjectPage({
   selectedCard,
   userDetails,
   handleEmptyProjectButton,
+  handleProjectClickFunction,
 }) {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
@@ -98,6 +99,10 @@ export default function ProjectPage({
     console.log(data);
   }, [data]);
 
+  const handleProjectClick = (title, data) => {
+    handleProjectClickFunction(title, data);
+  };
+
   return (
     <div className="projectPageContainer">
       <div className="projectPageBannerContainer">
@@ -118,6 +123,7 @@ export default function ProjectPage({
                   const dataList = d[Object.keys(d)[0]][title];
                   return (
                     <div
+                      onClick={() => handleProjectClick(title, dataList)}
                       className="skeleton"
                       style={{
                         background: `linear-gradient(153deg, ${dataList.color} 0%, ${dataList.secondColor} 100%)`,
@@ -137,7 +143,9 @@ export default function ProjectPage({
                         <div className="skeleton skeletonContent">
                           <div>
                             <div>{title}</div>
-                            <div className="skeletonTokensUsed">Tokens Used : -</div>
+                            <div className="skeletonTokensUsed">
+                              Tokens Used : -
+                            </div>
                           </div>
                         </div>
                       </div>

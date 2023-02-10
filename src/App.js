@@ -44,8 +44,8 @@ function App() {
         <Route path="/pptdashboard" element={<PptDashboard />} />
         <Route path="/createppt" element={<Createppt />} />
         <Route path="/dashboard" element={<Dashboard />}>
-          <Route path="home" element={<Dashboard />} />
-          <Route path="home/:id" element={<Dashboard />} />
+          <Route path="chat" element={<Dashboard />} />
+          <Route path="chat/:id" element={<Dashboard />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>

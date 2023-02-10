@@ -43,6 +43,13 @@ export default function Dashboard() {
     // navigate(newPath);
   };
 
+  const handleProjectClickFunction = (title, data) => {
+    const currentPath = location;
+    navigate(`chat/${title}`);
+    handleActiveNav(3);
+    console.log(title, data);
+  };
+
   const handleEmptyProjectButton = () => {
     handleActiveNav(1);
   };
@@ -118,6 +125,7 @@ export default function Dashboard() {
               userDetails={userDetails}
               selectedCard={selectedCard}
               handleEmptyProjectButton={handleEmptyProjectButton}
+              handleProjectClickFunction={handleProjectClickFunction}
             />
           </div>
         )}
