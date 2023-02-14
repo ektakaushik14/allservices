@@ -65,4 +65,16 @@
 .Createppt > :nth-child(3) {
   height: 100vh;
   width: 10%;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Createppt > :nth-child(3) > :nth-child(1) {
+  height: 50%;
+  width: 100%;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
 }/*# sourceMappingURL=Createppt.css.map */

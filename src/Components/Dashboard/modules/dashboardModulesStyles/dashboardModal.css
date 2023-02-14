@@ -65,6 +65,7 @@
   width: 24px;
   height: 24px;
   filter: invert(1);
+  -webkit-animation: rotateLoader 1s linear infinite;
   animation: rotateLoader 1s linear infinite;
 }
 .modalContainer > :nth-child(3) > :nth-of-type(1):hover {
@@ -86,6 +87,12 @@
   font-size: 14px;
   color: red;
   margin: 4px 0;
+}
+
+@-webkit-keyframes rotateLoader {
+  to {
+    transform: rotate(360deg);
+  }
 }
 @keyframes rotateLoader {
   to {
