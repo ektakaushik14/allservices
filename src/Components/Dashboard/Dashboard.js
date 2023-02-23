@@ -11,6 +11,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import OpenChat from "./modules/OpenChat/OpenChat";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -23,11 +24,16 @@ export default function Dashboard() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
+  const [selectedChat, setSelectedChat] = useState(null);
   const handleActiveNav = (nav) => {
     setActiveNav(nav);
   };
   const dashboardClickHandle = (isActive) => {
     if (isUserLoggedIn) {
+      if (isActive) {
+        handleActiveNav(1);
+        setIsModalActive(isActive);
+      }
       setIsModalActive(isActive);
     } else {
       navigate("/login");
@@ -43,11 +49,11 @@ export default function Dashboard() {
     // navigate(newPath);
   };
 
-  const handleProjectClickFunction = (title, data) => {
+  const handleProjectClickFunction = (title, data, cardName) => {
     const currentPath = location;
     navigate(`chat/${title}`);
+    setSelectedChat(`${title} (${cardName})`);
     handleActiveNav(3);
-    console.log(title, data);
   };
 
   const handleEmptyProjectButton = () => {
@@ -126,8 +132,17 @@ export default function Dashboard() {
               selectedCard={selectedCard}
               handleEmptyProjectButton={handleEmptyProjectButton}
               handleProjectClickFunction={handleProjectClickFunction}
+              selectedDashboardCard={selectedDashboardCard}
+              dashboardClickHandle={dashboardClickHandle}
             />
           </div>
+        )}
+        {activeNav === 3 && (
+          <OpenChat
+            selectedChat={selectedChat}
+            selectedCard={selectedCard}
+            userDetails={userDetails}
+          />
         )}
         {isModalActive && (
           <DashboardCardModal

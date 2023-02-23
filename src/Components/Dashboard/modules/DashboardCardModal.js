@@ -39,18 +39,19 @@ export default function DashboardCardModal({
         console.log(err);
       })
       .finally(() => {
-        console.log(availableNames);
         setLoading(false);
       });
   }, []);
+
+
 
   useEffect(() => {
     const nameList = availableNames.find(
       (obj) => Object.keys(obj)[0] === selectedCard.name
     );
     if (nameList && Object.values(nameList)) {
-      const checkName = Object.values(nameList)[0].some((name) =>
-        name.startsWith(modalInput)
+      const checkName = Object.values(nameList)[0].some(
+        (name) => name === modalInput
       );
       if (checkName && modalInput.length >= 3) {
         setNamesError("Name already exist");
@@ -83,7 +84,7 @@ export default function DashboardCardModal({
     }
   };
   const handleModalInput = (e) => {
-    setModalInput(e.target.value.trim());
+    setModalInput(e.target.value.trim().replace(/[\(\)]/g, ""));
   };
 
   const style = {

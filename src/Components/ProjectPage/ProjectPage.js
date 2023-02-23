@@ -26,14 +26,18 @@ const options = {
   speed: 1000,
 };
 
-const ProjectBanner = () => (
+const ProjectBanner = ({ selectedDashboardCard, dashboardClickHandle }) => (
   <Splide
     className="slide_container"
     options={options}
     aria-label="trending services"
   >
-    {contentServicesWithColor.slice(0, 3).map((slide) => (
+    {contentServicesWithColor.slice(0, 2).map((slide) => (
       <SplideSlide
+        onClick={() => {
+          dashboardClickHandle(true);
+          selectedDashboardCard(slide);
+        }}
         style={{
           background: `linear-gradient(153deg, ${slide.color} 0%, ${slide.secondColor} 100%)`,
         }}
@@ -63,6 +67,8 @@ export default function ProjectPage({
   userDetails,
   handleEmptyProjectButton,
   handleProjectClickFunction,
+  selectedDashboardCard,
+  dashboardClickHandle,
 }) {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
@@ -90,17 +96,12 @@ export default function ProjectPage({
         console.log(err);
       })
       .finally(() => {
-        console.log(data);
         setLoading(false);
       });
   }, []);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
-  const handleProjectClick = (title, data) => {
-    handleProjectClickFunction(title, data);
+  const handleProjectClick = (title, data, cardName) => {
+    handleProjectClickFunction(title, data, cardName);
   };
 
   return (
@@ -112,7 +113,10 @@ export default function ProjectPage({
           alt=""
         />
       </div>
-      <ProjectBanner />
+      <ProjectBanner
+        selectedDashboardCard={selectedDashboardCard}
+        dashboardClickHandle={dashboardClickHandle}
+      />
       <div className="allProjectsContainer">
         {!loading && data.length != 0 ? (
           data.map((d) => (
@@ -123,7 +127,9 @@ export default function ProjectPage({
                   const dataList = d[Object.keys(d)[0]][title];
                   return (
                     <div
-                      onClick={() => handleProjectClick(title, dataList)}
+                      onClick={() =>
+                        handleProjectClick(title, dataList, Object.keys(d)[0])
+                      }
                       className="skeleton"
                       style={{
                         background: `linear-gradient(153deg, ${dataList.color} 0%, ${dataList.secondColor} 100%)`,
@@ -156,8 +162,11 @@ export default function ProjectPage({
             </div>
           ))
         ) : isDataEmpty ? (
-          <div className="emptyProjectAddButton">
-            <button onClick={handleEmptyProjectButton}>Create Project</button>
+          <div className="emptyProjectAddButtonContainer">
+            <div>You have no active Projects!</div>
+            <div className="emptyProjectAddButton">
+              <button onClick={handleEmptyProjectButton}>Create Project</button>
+            </div>
           </div>
         ) : (
           <div className="fetchingProjects">

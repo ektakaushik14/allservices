@@ -17,7 +17,7 @@ const ProjectPhoto10 = require("../Images/Project Photo/projectPhoto10.png");
 
 const contentServices = [
   "Answering questions",
-  "Generating text",
+  "Generating text/Hooks",
   "Summarizing text",
   "Transcribing audio",
   "Providing definitions",
@@ -34,6 +34,118 @@ const contentServices = [
   "Summarization",
 ];
 
+const contentServicesWithQuestions = {
+  "Answering questions": "Ask me any type of question?",
+  "Generating text or hooks": "What kind of text do you want me to generate?",
+  "Summarizing text": "What text do you want me to summarize?",
+  "Transcribing audio": "What audio do you want me to transcribe?",
+  "Providing definitions": "What term do you want me to define?",
+  "Providing translations": "What language do you want me to translate to?",
+  "Providing recommendations":
+    "What kind of recommendations are you looking for?",
+  "Product descriptions": "What product do you want me to describe?",
+  "YouTube video scripts":
+    "What type of video script do you want me to generate?",
+  "Sales copywriting":
+    "What product or service do you want me to write sales copy for?",
+  "Blog post writing": "What topic do you want me to write a blog post about?",
+  "Article writing": "What topic do you want me to write an article about?",
+  "Social media posts":
+    "What kind of social media post do you want me to generate?",
+  Transcription: "What audio do you want me to transcribe?",
+  Translation: "What text do you want me to translate?",
+  Summarization: "What text do you want me to summarize?",
+};
+
+const contentServicesTemplates = {
+  "Answering questions": [
+    "Direct answer format",
+    "List format",
+    "Definition format",
+    "Comparison format",
+  ],
+  "Generating text or hooks": [
+    "Buzzwords",
+    "One-liners",
+    "Attention grabbers",
+    "Headline starters",
+    "Personalized hooks",
+    "Question hooks",
+    "Curiosity hooks",
+  ],
+  "Summarizing text": [
+    "Executive summary format",
+    "List format",
+    "Key points format",
+    "Infographic format",
+  ],
+  "Transcribing audio": [
+    "Transcript format",
+    "Summary format",
+    "Highlights format",
+  ],
+  "Providing definitions": [
+    "Dictionary format",
+    "Thesaurus format",
+    "Examples format",
+  ],
+  "Providing translations": [
+    "Word-for-word translation format",
+    "Interpretive translation format",
+    "Back-translation format",
+  ],
+  "Providing recommendations": [
+    "Best practices format",
+    "Top picks format",
+    "Alternatives format",
+  ],
+  "Product descriptions": [
+    "Features and benefits format",
+    "Specifications format",
+    "Comparison format",
+  ],
+  "YouTube video scripts": [
+    "Script format",
+    "Outline format",
+    "Storyboard format",
+  ],
+  "Sales copywriting": [
+    "Persuasive copy format",
+    "Benefits-focused format",
+    "Urgency format",
+  ],
+  "Blog post writing": [
+    "How-to format",
+    "List format",
+    "Opinion format",
+    "Storytelling format",
+  ],
+  "Article writing": [
+    "News format",
+    "Opinion format",
+    "Feature format",
+    "Interview format",
+  ],
+  "Social media posts": [
+    "Hashtag format",
+    "Caption format",
+    "Story format",
+    "Poll format",
+  ],
+  Transcription: ["Transcript format", "Summary format", "Highlights format"],
+  Translation: [
+    "Word-for-word translation format",
+    "Interpretive translation format",
+    "Back-translation format",
+  ],
+  Summarization: [
+    "Executive summary format",
+    "List format",
+    "Key points format",
+    "Infographic format",
+  ],
+};
+
 const contentServicesWithColor = [
   {
     name: "Answering questions",
@@ -47,9 +159,9 @@ const contentServicesWithColor = [
     longDesc: "Get precise answers to any questions you have with ease.",
   },
   {
-    name: "Generating text",
+    name: "Generating text or hooks",
     color: "#ED6CBC",
-    description: "Generate text for a given prompt or topic.",
+    description: "Generate text or hooks for a given prompt or topic.",
     secondColor: "#F8A7C9",
     category: "Skill",
     img: Photo2,
@@ -234,4 +346,10 @@ const projectContentPhotos = [
   ProjectPhoto10,
 ];
 
-export { contentServices, contentServicesWithColor, projectContentPhotos };
+export {
+  contentServices,
+  contentServicesWithColor,
+  projectContentPhotos,
+  contentServicesWithQuestions,
+  contentServicesTemplates,
+};

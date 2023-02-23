@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 
 export default function ProfileNav({ active }) {
-  useEffect(() => {
-    console.log(active);
-  }, [active]);
   return (
     <div className="profileNav">
       <div className="profileNavHeader">
