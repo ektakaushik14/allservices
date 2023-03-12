@@ -116,8 +116,7 @@
   width: 24px;
   height: 24px;
   filter: invert(1);
-  -webkit-animation: rotateLoader 1s linear infinite;
-          animation: rotateLoader 1s linear infinite;
+  animation: rotateLoader 1s linear infinite;
 }
 
 .login-divider {
@@ -163,12 +162,6 @@
   color: red;
   font-size: 12px;
   margin-bottom: 1rem;
-}
-
-@-webkit-keyframes rotateLoader {
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes rotateLoader {
